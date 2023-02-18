@@ -5,7 +5,7 @@ import styles from "@/styles/Home.module.scss";
 import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 type Props = {
@@ -24,7 +24,7 @@ function Home(_props: InferGetStaticPropsType<typeof getStaticProps>) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
+      <main className={styles.main} data-testid="example">
         <p>{t("hello")}</p>
       </main>
     </>
