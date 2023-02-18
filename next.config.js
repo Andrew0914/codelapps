@@ -1,4 +1,6 @@
 // next.config.js
+const { i18n } = require('./next-i18next.config')
+
 
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
@@ -19,6 +21,7 @@ const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   // Optionally, add any other Next.js config below
   reactStrictMode: true,
+  i18n,
 }
 
 // Merge MDX config with Next.js config
