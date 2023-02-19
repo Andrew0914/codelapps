@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
-import styles from "@/styles/Home.module.scss";
 
 import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import { useTranslation } from "next-i18next";
@@ -24,7 +23,7 @@ function Home(_props: InferGetStaticPropsType<typeof getStaticProps>) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main} data-testid="example">
+      <main data-testid="example">
         <p>{t("hello")}</p>
       </main>
     </>

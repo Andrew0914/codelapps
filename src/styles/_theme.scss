@@ -1,0 +1,31 @@
+@import "variables";
+@import "mixins";
+
+// TODO: when implementing manual change theme
+// :root.light {
+//   @include spread-map($theme-map-light);
+// }
+// :root.dark {
+//   @include spread-map($theme-map-dark);
+// }
+
+:root {
+  @include spread-map($theme-map-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include spread-map($theme-map-dark);
+  }
+}
+
+body {
+  color: var($--text);
+  background-color: var($--bg-content);
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
