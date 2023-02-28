@@ -25,7 +25,7 @@ function Home(_props: InferGetStaticPropsType<typeof getStaticProps>) {
       </Head>
       <main data-testid="example ">
         <h1 className="header--0">This is an example</h1>
-        <p className="text--md text--accent bg--lead">
+        <p className="text--md text--accent bg--lead shadow-xy p--2 round--sm">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta autem
           ad et illo
         </p>

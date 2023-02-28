@@ -9,6 +9,8 @@ $--danger: --danger;
 $--bg-content: --bg-content;
 $--bg-lead: --bg-lead;
 $--text-gradient: --text-gradient;
+$--vertical-shadow: --vertical-shadow;
+$--shadow: --shadow;
 
 // Default theme
 $theme-map-light: (
@@ -22,6 +24,8 @@ $theme-map-light: (
   $--bg-content: #f2f4f7,
   $--bg-lead: #ffffff,
   $--text-gradient: linear-gradient(180deg, #7db800 50.31%, #ed0900 100%),
+  $--vertical-shadow: #d4d4d4,
+  $--shadow: rgba(78, 78, 78, 0.5),
 );
 
 // Override the default light theme
@@ -36,4 +40,6 @@ $theme-map-dark: (
   $--bg-content: #282828,
   $--bg-lead: #1f1f1f,
   $--text-gradient: linear-gradient(180deg, #50feb0 24.5%, #6494ff 103.25%),
+  $--vertical-shadow: #202020,
+  $--shadow: rgba(0, 0, 0, 0.3),
 );
