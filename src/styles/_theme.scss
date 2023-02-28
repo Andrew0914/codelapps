@@ -1,8 +1,3 @@
-@mixin spread-map($map: ()) {
-  @each $key, $value in $map {
-    #{$key}: $value;
-  }
-}
 // TODO: when implementing manual change theme
 // :root.light {
 //   @include spread-map($theme-map-light);

@@ -23,9 +23,9 @@ function Home(_props: InferGetStaticPropsType<typeof getStaticProps>) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main data-testid="example">
+      <main data-testid="example ">
         <h1 className="header--0">This is an example</h1>
-        <p className="text--md text--content">
+        <p className="text--md text--accent bg--lead">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta autem
           ad et illo
         </p>

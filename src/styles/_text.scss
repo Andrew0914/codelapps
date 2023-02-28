@@ -98,25 +98,6 @@ $text-header-sizes: (
   }
 }
 
-/**** TEXT COLORS 🎨 ****/
-$text-colors: muted, text, primary, secondary, highlight, accent, danger;
-/**
-* Generatew text color classes 
-*/
-@mixin make-text-color-classes() {
-  @each $color in $text-colors {
-    @if $color == text {
-      .text--content {
-        color: var(--#{$color});
-      }
-    } @else {
-      .text--#{$color} {
-        color: var(--#{$color});
-      }
-    }
-  }
-}
-
 /****** TEXT ITEMS 📝*****/
 .text--link {
   @extend %content-font;
@@ -148,6 +129,25 @@ $text-colors: muted, text, primary, secondary, highlight, accent, danger;
     font-size: 3.25rem;
     line-height: 3.75rem;
     letter-spacing: 0.05rem;
+  }
+}
+
+/****  TEXT COLORS 🎨 ****/
+$text-colors: muted, text, primary, secondary, highlight, accent, danger;
+/**
+* Generatew  color classes 
+*/
+@mixin make-text-color-classes() {
+  @each $color in $text-colors {
+    @if $color == text {
+      .text--content {
+        color: var(--#{$color});
+      }
+    } @else {
+      .text--#{$color} {
+        color: var(--#{$color});
+      }
+    }
   }
 }
 

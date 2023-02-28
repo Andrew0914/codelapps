@@ -1,0 +1,20 @@
+/**** BORDER COLORS ****/
+$border-colors: muted, text, primary, secondary, highlight, accent, danger;
+/**
+* Generate  border color classes 
+*/
+@mixin make-border-color-classes() {
+  @each $color in $border-colors {
+    @if $color == text {
+      .border--content {
+        border: 1px solid var(--#{$color});
+      }
+    } @else {
+      .border--#{$color} {
+        border: 1px solid var(--#{$color});
+      }
+    }
+  }
+}
+
+@include make-border-color-classes();
