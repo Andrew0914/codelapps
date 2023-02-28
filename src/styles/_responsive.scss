@@ -1,0 +1,22 @@
+@use "sass:map";
+
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+@mixin on-mobile() {
+  @media screen and (max-width: map.get($breakpoints, "md")) {
+    @content;
+  }
+}
+
+@mixin on-desktop() {
+  @media screen and (min-width: map.get($breakpoints, "md")) {
+    @content;
+  }
+}

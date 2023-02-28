@@ -24,9 +24,19 @@ function Home(_props: InferGetStaticPropsType<typeof getStaticProps>) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main data-testid="example">
-        <h1>This is an example</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta autem ad vitae eius assumenda ipsam laudantium, eveniet a sint? Quod quasi, ducimus eveniet illo vel nemo maiores? Beatae, expedita culpa.</p>
-        <p>{t("hello")}</p>
+        <h1 className="header--0">This is an example</h1>
+        <p className="text--md text--content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta autem
+          ad et illo
+        </p>
+        <a
+          href="https://google.com"
+          className="text--link text--big"
+          target="_blank"
+          rel="noreferrer"
+        >
+          {t("hello")}
+        </a>
       </main>
     </>
   );
