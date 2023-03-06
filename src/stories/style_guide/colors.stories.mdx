@@ -1,0 +1,41 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Style Guide/Colors" />
+
+# Colors
+
+These are the color variables for the theme, since they are settled you musn't  use them directly,
+instead try to create the appropiated class that use an specific color porspecific reason.
+
+```scss
+  $theme-map-light: (
+  $--muted: #6c757d,
+  $--text: #2a2a2a,
+  $--primary: #1a8cd8,
+  $--secondary: #127797,
+  $--highlight: #386676,
+  $--accent: #d8701a,
+  $--danger: #972212,
+  $--bg-content: #f2f4f7,
+  $--bg-lead: #ffffff,
+  $--text-gradient: linear-gradient(180deg, #7db800 50.31%, #ed0900 100%),
+  $--vertical-shadow: #d4d4d4,
+  $--shadow: rgba(78, 78, 78, 0.5),
+);
+
+// Override the default light theme
+$theme-map-dark: (
+  $--muted: #b1afbb,
+  $--text: #f0f0f0,
+  $--primary: #e01673,
+  $--secondary: #9d0f73,
+  $--highlight: #ffc6ee,
+  $--accent: #84e016,
+  $--danger: #f33636,
+  $--bg-content: #282828,
+  $--bg-lead: #1f1f1f,
+  $--text-gradient: linear-gradient(180deg, #50feb0 24.5%, #6494ff 103.25%),
+  $--vertical-shadow: #202020,
+  $--shadow: rgba(0, 0, 0, 0.3),
+);
+```

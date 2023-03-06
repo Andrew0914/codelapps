@@ -1,0 +1,35 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Style Guide/Responsive Utilities" />
+
+# Responsive utilities
+
+The next mixins allow us to apply specific styles on certain pre-defined breakpoints
+
+
+```scss
+@mixin on-mobile() { // <= md
+  .my-class{
+    width: 100%;
+  }
+}
+
+@mixin on-desktop() { // > md
+  .my-class{
+    width: 480px;
+  }
+}
+
+```
+
+### Breakpoints
+```scss
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+```

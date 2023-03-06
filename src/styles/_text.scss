@@ -1,0 +1,157 @@
+@use "sass:list";
+
+%content-font {
+  font-family: "Open Sans", sans-serif;
+}
+
+%header-font {
+  font-family: "Libre Baskerville", serif;
+}
+
+/**** TEXT PRIORITY SIZE 📏****/
+$text-content-sizes: (
+  --big: (
+    1.125rem,
+    1.75rem,
+    normal,
+  ),
+  --md: (
+    1rem,
+    1.5rem,
+    normal,
+  ),
+  --small: (
+    0.875rem,
+    1.25rem,
+    normal,
+  ),
+  --xsmall: (
+    0.75rem,
+    1rem,
+    normal,
+  ),
+  --big-bold: (
+    1.125rem,
+    1.75rem,
+    bold,
+  ),
+  --md-bold: (
+    1rem,
+    1.5rem,
+    bold,
+  ),
+  --small-bold: (
+    0.875rem,
+    1.25rem,
+    bold,
+  ),
+  --xsmall-bold: (
+    0.75rem,
+    1rem,
+    bold,
+  ),
+);
+
+$text-header-sizes: (
+  --1: (
+    2.625rem,
+    3.125rem,
+    bold,
+  ),
+  --2: (
+    2.25rem,
+    2.5rem,
+    bold,
+  ),
+  --3: (
+    1.875rem,
+    2.25rem,
+    bold,
+  ),
+  --4: (
+    1.5rem,
+    2hrem,
+    bold,
+  ),
+  --5: (
+    1.25rem,
+    1.75rem,
+    bold,
+  ),
+);
+
+/**
+* Generate classes for text hierarchy
+*/
+@mixin make-text-size-classes($prefix, $sizes) {
+  @each $variant, $font-values in $sizes {
+    .#{$prefix}#{$variant} {
+      @if $prefix == "header" {
+        @extend %header-font;
+      } @else {
+        @extend %content-font;
+      }
+      font-size: list.nth($font-values, 1);
+      line-height: list.nth($font-values, 2);
+      font-weight: list.nth($font-values, 3);
+    }
+  }
+}
+
+/****** TEXT ITEMS 📝*****/
+.text--link {
+  @extend %content-font;
+  color: var(--highlight);
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:visited {
+    color: var(--muted);
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--primary);
+  }
+}
+
+.header--0 {
+  @extend %header-font;
+  background-image: var(--text-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  font-weight: bold;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  letter-spacing: 0.05rem;
+  @include on-desktop() {
+    font-size: 3.25rem;
+    line-height: 3.75rem;
+    letter-spacing: 0.05rem;
+  }
+}
+
+/****  TEXT COLORS 🎨 ****/
+$text-colors: muted, text, primary, secondary, highlight, accent, danger;
+/**
+* Generatew  color classes 
+*/
+@mixin make-text-color-classes() {
+  @each $color in $text-colors {
+    @if $color == text {
+      .text--content {
+        color: var(--#{$color});
+      }
+    } @else {
+      .text--#{$color} {
+        color: var(--#{$color});
+      }
+    }
+  }
+}
+
+@include make-text-size-classes("text", $text-content-sizes);
+@include make-text-size-classes("header", $text-header-sizes);
+@include make-text-color-classes();

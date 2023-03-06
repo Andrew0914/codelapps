@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
-import styles from "@/styles/Home.module.scss";
 
 import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import { useTranslation } from "next-i18next";
@@ -24,8 +23,20 @@ function Home(_props: InferGetStaticPropsType<typeof getStaticProps>) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main} data-testid="example">
-        <p>{t("hello")}</p>
+      <main data-testid="example ">
+        <h1 className="header--0">This is an example</h1>
+        <p className="text--md text--accent bg--lead shadow-xy p--2 round--sm">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta autem
+          ad et illo
+        </p>
+        <a
+          href="https://google.com"
+          className="text--link text--big"
+          target="_blank"
+          rel="noreferrer"
+        >
+          {t("hello")}
+        </a>
       </main>
     </>
   );

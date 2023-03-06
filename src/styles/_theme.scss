@@ -1,0 +1,48 @@
+// TODO: when implementing manual change theme
+// :root.light {
+//   @include spread-map($theme-map-light);
+// }
+// :root.dark {
+//   @include spread-map($theme-map-dark);
+// }
+
+:root {
+  @include spread-map($theme-map-light);
+}
+
+:root.light {
+  @include spread-map($theme-map-light);
+}
+
+:root.dark {
+  @include spread-map($theme-map-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include spread-map($theme-map-dark);
+  }
+}
+
+body {
+  color: var($--text);
+  background-color: var($--bg-content);
+}
+
+body > *:not(h1, h2, h3, h4, h5) {
+  font-family: "Open Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Libre Baskerville", serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
