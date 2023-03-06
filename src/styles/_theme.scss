@@ -10,6 +10,14 @@
   @include spread-map($theme-map-light);
 }
 
+:root.light {
+  @include spread-map($theme-map-light);
+}
+
+:root.dark {
+  @include spread-map($theme-map-dark);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     @include spread-map($theme-map-dark);

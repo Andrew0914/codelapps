@@ -116,6 +116,7 @@ $text-header-sizes: (
 }
 
 .header--0 {
+  @extend %header-font;
   background-image: var(--text-gradient);
   -webkit-background-clip: text;
   background-clip: text;

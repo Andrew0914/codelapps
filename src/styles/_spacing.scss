@@ -10,24 +10,24 @@ $margins: m, mr, ml, mt, mb, mx, my;
           margin: #{$i * $unit};
         }
         @if $margin == mr {
-          margin-right: #{$i * $unit};
+          margin-right: calc($i * $unit);
         }
         @if $margin == ml {
-          margin-left: #{$i * $unit};
+          margin-left: calc($i * $unit);
         }
         @if $margin == mb {
-          margin-bottom: #{$i * $unit};
+          margin-bottom: calc($i * $unit);
         }
         @if $margin == mt {
-          margin-top: #{$i * $unit};
+          margin-top: calc($i * $unit);
         }
         @if $margin == mx {
-          margin-left: #{$i * $unit};
-          margin-right: #{$i * $unit};
+          margin-left: calc($i * $unit);
+          margin-right: calc($i * $unit);
         }
         @if $margin == my {
-          margin-top: #{$i * $unit};
-          margin-bottom: #{$i * $unit};
+          margin-top: calc($i * $unit);
+          margin-bottom: calc($i * $unit);
         }
       }
     }
@@ -39,27 +39,27 @@ $margins: m, mr, ml, mt, mb, mx, my;
     @for $i from 1 through 16 {
       &--#{$i} {
         @if $padding == p {
-          padding: #{$i * $unit};
+          padding: calc($i * $unit);
         }
         @if $padding == pr {
-          padding-right: #{$i * $unit};
+          padding-right: calc($i * $unit);
         }
         @if $padding == pl {
-          padding-left: #{$i * $unit};
+          padding-left: calc($i * $unit);
         }
         @if $padding == pb {
-          padding-bottom: #{$i * $unit};
+          padding-bottom: calc($i * $unit);
         }
         @if $padding == pt {
-          padding-top: #{$i * $unit};
+          padding-top: calc($i * $unit);
         }
         @if $padding == px {
-          padding-left: #{$i * $unit};
-          padding-right: #{$i * $unit};
+          padding-left: calc($i * $unit);
+          padding-right: calc($i * $unit);
         }
         @if $padding == py {
-          padding-top: #{$i * $unit};
-          padding-bottom: #{$i * $unit};
+          padding-top: calc($i * $unit);
+          padding-bottom: calc($i * $unit);
         }
       }
     }
@@ -67,11 +67,11 @@ $margins: m, mr, ml, mt, mb, mx, my;
 }
 
 .round--sm {
-  border-radius: #{$unit / 4};
+  border-radius: calc($unit / 4);
 }
 
 .round {
-  border-radius: #{$unit / 2};
+  border-radius: calc($unit / 2);
 }
 
 .round--big {
@@ -79,5 +79,9 @@ $margins: m, mr, ml, mt, mb, mx, my;
 }
 
 .round--xl {
-  border-radius: #{$unit * 2};
+  border-radius: calc($unit * 2);
+}
+
+.circle {
+  border-radius: 100%;
 }

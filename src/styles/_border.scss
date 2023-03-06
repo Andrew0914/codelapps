@@ -7,14 +7,24 @@ $border-colors: muted, text, primary, secondary, highlight, accent, danger;
   @each $color in $border-colors {
     @if $color == text {
       .border--content {
-        border: 1px solid var(--#{$color});
+        border-color: var(--#{$color});
+        border-style: solid;
       }
     } @else {
       .border--#{$color} {
-        border: 1px solid var(--#{$color});
+        border-color: var(--#{$color});
+        border-style: solid;
       }
     }
   }
+}
+
+.border--thin {
+  border-width: 1px;
+}
+
+.border--thick {
+  border-width: 2px;
 }
 
 @include make-border-color-classes();

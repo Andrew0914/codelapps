@@ -1,0 +1,65 @@
+
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Style Guide/Spacing" />
+
+# Spacing
+Class utilities for spacing, the minimum unit or base unit is 8px, with the following classes you can set maring and padding
+
+### Padding
+#### Prefix
+* p -> all sides
+* pr -> right
+* pl -> left
+* pt -> top
+* pb -> bottom
+* px -> horizontal
+* py -> vertical
+
+
+### Marging
+#### Prefix
+* m -> all sides
+* mr -> right
+* ml -> left
+* mt -> top
+* mb -> bottom
+* mx -> horizontal
+* my -> vertical
+
+After the prefix you can set how many times you want the base unit to be multiplied (from 1 to 10).
+
+### Example
+
+```html
+<div class='m--1 text--content bg--primary'>Margin all sides 8px</div> 
+<div class="mt--4 text--content bg--primary"> Just margin top 32px (8px * 4)</div>
+<div class="mx--10 text--content bg--primary">Margin horizontal 80px (8px * 10)</div>
+
+<div class="p--1 text--content bg--primary">Padding all sides 8px</div>
+<div class="pt--4 text--content bg--primary"> Just Padding top 32px (8px * 4)</div>
+<div class="px--10 text--content bg--primary">Padding horizontal 80px (8px * 10)</div>
+
+```
+
+## Border radius
+
+```html
+<div class="bg--primary p--3 text--content round--sm"> .round--sm </div>
+<div class="bg--primary p--3 text--content round"> .round </div>
+<div class="bg--primary p--3 text--content round--big"> .round--big </div>
+<div class="bg--primary p--3 text--content round--xl"> .round--xl </div>
+<div class="bg--primary p--3 text--content circle"> .circle </div>
+
+```
+<div class="bg--content round p--3">
+  <div class="bg--primary p--3 text--content round--sm"> .round--sm </div>
+  <div class="pt--3"/>
+  <div class="bg--primary p--3 text--content round"> .round </div>  
+  <div class="pt--3"/>
+  <div class="bg--primary p--3 text--content round--big"> .round--big </div>
+  <div class="pt--3"/>
+  <div class="bg--primary p--3 text--content round--xl"> .round--xl </div>
+  <div class="pt--3" />
+  <div class="bg--primary p--3 text--content circle"> .circle </div>
+</div>
