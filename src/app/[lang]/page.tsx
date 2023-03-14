@@ -11,7 +11,7 @@ export default async function IndexPage({
   const dictionary = await getDictionary(lang);
   return (
     <div>
-      <p>Current locale: {lang}</p>
+      <h1 className="header--0">Current locale: {lang}</h1>
       <p>This text is rendered on the server:{dictionary.hello}</p>
       <HelloWorld />
     </div>
