@@ -10,11 +10,11 @@
   @include spread-map($theme-map-light);
 }
 
-:root.light {
+:root .light {
   @include spread-map($theme-map-light);
 }
 
-:root.dark {
+:root .dark {
   @include spread-map($theme-map-dark);
 }
 
