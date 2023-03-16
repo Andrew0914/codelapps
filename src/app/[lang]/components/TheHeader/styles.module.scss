@@ -1,0 +1,62 @@
+@import "@/styles/_responsive.scss";
+@import "@/styles/spacing.scss";
+
+.theHeader {
+  height: calc($unit * 8);
+  padding: calc($unit * 2);
+  box-sizing: border-box;
+  & > div {
+    @include on-desktop() {
+      width: 75%;
+      max-width: calc($unit * 126);
+      margin: 0 auto;
+    }
+  }
+}
+
+.theHeaderActions {
+  gap: calc($unit * 2);
+  @include on-desktop() {
+    gap: calc($unit * 4);
+  }
+}
+
+.theHeaderNav {
+  display: none;
+  @include on-desktop() {
+    display: block;
+    & > ul {
+      padding-inline-start: 0;
+      display: flex;
+      list-style: none;
+      gap: calc($unit * 3);
+    }
+  }
+}
+
+.themeSwitcher {
+  display: none;
+}
+
+.theHeaderIcons {
+  & > ul {
+    list-style: none;
+    padding-inline-start: 0px;
+    display: flex;
+    gap: calc($unit * 2);
+
+    & > li:nth-child(1),
+    li:nth-child(2) {
+      display: none;
+      @include on-desktop() {
+        display: block;
+      }
+    }
+  }
+}
+
+.theHamburgerButton {
+  @include on-desktop() {
+    display: none;
+  }
+}

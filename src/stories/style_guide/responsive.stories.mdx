@@ -7,14 +7,14 @@ import { Meta } from "@storybook/addon-docs";
 The next mixins allow us to apply specific styles on certain pre-defined breakpoints
 
 
-```scss
-@mixin on-mobile() { // <= md
+```css
+@include on-mobile() { // <= md
   .my-class{
     width: 100%;
   }
 }
 
-@mixin on-desktop() { // > md
+@include on-desktop() { // > md
   .my-class{
     width: 480px;
   }
@@ -23,7 +23,7 @@ The next mixins allow us to apply specific styles on certain pre-defined breakpo
 ```
 
 ### Breakpoints
-```scss
+```css
 $breakpoints: (
   xs: 0,
   sm: 576px,
