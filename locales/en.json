@@ -1,3 +1,9 @@
 {
-  "hello": "hello world"
+  "navigation": {
+    "routes": {
+      "home": "Home",
+      "blog": "Blog",
+      "portfolio": "Portfolio"
+    }
+  }
 }

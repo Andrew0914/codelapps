@@ -3,3 +3,14 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.flex--center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex--baseline {
+  display: flex;
+  align-items: baseline;
+}

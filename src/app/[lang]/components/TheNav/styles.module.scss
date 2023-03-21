@@ -1,0 +1,32 @@
+@import "@/styles/_responsive.scss";
+@import "@/styles/_spacing.scss";
+@import "@/styles/_colors.scss";
+
+.theNav_inlineMenu {
+  display: none;
+
+  @include on-desktop() {
+    padding-inline-start: 0;
+    display: flex;
+    list-style: none;
+    gap: calc($unit * 3);
+  }
+}
+
+.theNav_hamburguerButton {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: calc($unit * 0.5);
+  box-sizing: border-box;
+  width: 64px;
+  height: 64px;
+
+  &:active {
+    background-color: var($--primary);
+  }
+
+  @include on-desktop() {
+    display: none;
+  }
+}

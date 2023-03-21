@@ -1,5 +1,10 @@
 "use client";
+import TheNav from "../TheNav";
 import styles from "./styles.module.scss";
+import GetAppIcon from "@mui/icons-material/GetApp";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import GitHubIcon from "@mui/icons-material/GitHub";
+
 // TODO: Use icon library or svg icons as components
 // TODO: Take out texts from here to  dicitonary
 // TODO: Create Search Bar component
@@ -8,26 +13,25 @@ import styles from "./styles.module.scss";
 export default function TheHeader() {
   return (
     <header className={`shadow--y ${styles.theHeader}`}>
-      <div className="flex--sb-center">
+      <div className={`flex--sb-center ${styles.theHeader_content}`}>
         <h1 className="text--big-bold text--content">🍕 Codelapps</h1>
-        <div className={`flex--sb-center ${styles.theHeaderActions}`}>
+        <div className={`flex--sb-center ${styles.theHeader_actions}`}>
           <span> SEARCH BAR </span>
-          <nav className={styles.theHeaderNav}>
-            <ul>
-              <li className="text--big">Home</li>
-              <li className="text--big">Blog</li>
-              <li className="text--big">Portfolio</li>
-            </ul>
-          </nav>
           <span className={styles.themeSwitcher}> Dark/Light</span>
           <span className={styles.theHeaderIcons}>
             <ul>
-              <li>🕊️</li>
-              <li>🐙</li>
-              <li>⬇️</li>
+              <li>
+                <TwitterIcon />
+              </li>
+              <li>
+                <GitHubIcon />
+              </li>
+              <li>
+                <GetAppIcon />
+              </li>
             </ul>
           </span>
-          <span className={styles.theHamburgerButton}>🍔</span>
+          <TheNav />
         </div>
       </div>
     </header>
