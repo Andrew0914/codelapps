@@ -12,6 +12,7 @@
   @include on-desktop() {
     width: 75%;
     max-width: calc($unit * 126);
+    min-width: calc($unit * 94);
     margin: 0 auto;
   }
 }
@@ -20,32 +21,42 @@
   height: 100%;
   gap: calc($unit * 2);
   @include on-desktop() {
-    gap: calc($unit * 4);
+    gap: calc($unit * 3);
   }
 }
 
-.themeSwitcher {
+.theHeader_themeSwitcher {
   display: none;
+  @include on-desktop() {
+    display: block;
+  }
 }
 
-.theHeaderIcons {
-  & > ul {
-    list-style: none;
-    padding-inline-start: 0px;
-    display: flex;
-    gap: calc($unit * 2);
-
-    & > li {
+.theHeader_shortcuts {
+  & > ul > li:nth-child(1),
+  li:nth-child(2),
+  li:nth-child(3) {
+    display: none;
+    @include on-desktop() {
       display: flex;
-      align-items: baseline;
     }
+  }
+  order: 0;
+  @include on-desktop() {
+    order: initial;
+  }
+}
 
-    & > li:nth-child(1),
-    li:nth-child(2) {
-      display: none;
-      @include on-desktop() {
-        display: flex;
-      }
-    }
+.theHeader_nav {
+  order: 2;
+  @include on-desktop() {
+    order: initial;
+  }
+}
+
+.theHeader_searchbar {
+  order: 1;
+  @include on-desktop() {
+    order: initial;
   }
 }

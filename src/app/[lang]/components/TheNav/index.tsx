@@ -23,13 +23,11 @@ export default function TheNav(props: TheNavProps) {
     <nav className={props.className}>
       <ul className={styles.theNav_inlineMenu}>
         {routes.map((routeItem) => (
-          <Link
-            href={routeItem.route}
-            className="text--big text--link"
-            key={routeItem.name}
-          >
-            {routeItem.name}
-          </Link>
+          <li key={routeItem.name}>
+            <Link href={routeItem.route} className="text--md text--link">
+              {routeItem.name}
+            </Link>
+          </li>
         ))}
       </ul>
       <button

@@ -104,6 +104,7 @@ $text-header-sizes: (
   color: var(--highlight);
   text-decoration: underline;
   cursor: pointer;
+  transition: color 0.3s ease-in-out;
 
   &:visited {
     color: var(--muted);
