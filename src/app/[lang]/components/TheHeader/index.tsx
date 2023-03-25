@@ -1,6 +1,7 @@
 "use client";
 import TheNav from "../TheNav";
 import Shortcuts from "../Shortcuts";
+import SearchButton from "../ui/SearchButton";
 import styles from "./styles.module.scss";
 
 // TODO: Take out texts from here to  dicitonary
@@ -12,7 +13,7 @@ export default function TheHeader() {
       <div className={`flex--sb-center ${styles.theHeader_content}`}>
         <h1 className="text--big-bold text--content">🍕 Codelapps</h1>
         <div className={`flex--sb-center ${styles.theHeader_actions}`}>
-          <span className={styles.theHeader_searchbar}> SEARCH BAR </span>
+          <SearchButton className={styles.theHeader_searchbar} />
           <TheNav className={styles.theHeader_nav} />
           <span className={styles.theHeader_themeSwitcher}> Dark/Light</span>
           <Shortcuts className={styles.theHeader_shortcuts} />

@@ -20,3 +20,15 @@ $breakpoints: (
     @content;
   }
 }
+
+@mixin on-light() {
+  :root .light {
+    @include spread-map($theme-map-dark);
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      @include spread-map($theme-map-dark);
+    }
+  }
+}

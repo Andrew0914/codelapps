@@ -19,7 +19,7 @@
 
 .theHeader_actions {
   height: 100%;
-  gap: calc($unit * 2);
+  gap: $unit;
   @include on-desktop() {
     gap: calc($unit * 3);
   }
@@ -45,6 +45,18 @@
   @include on-desktop() {
     order: initial;
   }
+  & > ul > li:nth-child(4) > a {
+    width: 40px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include on-desktop() {
+      width: auto;
+      height: auto;
+      align-items: baseline;
+    }
+  }
 }
 
 .theHeader_nav {
@@ -56,7 +68,11 @@
 
 .theHeader_searchbar {
   order: 1;
+  width: 40px;
+  height: 64px;
   @include on-desktop() {
+    width: auto;
+    height: auto;
     order: initial;
   }
 }
