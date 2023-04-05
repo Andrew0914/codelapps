@@ -1,10 +1,12 @@
 @import "@/styles/_responsive.scss";
 @import "@/styles/spacing.scss";
+@import "@/styles/colors.scss";
 
 .theHeader {
   height: calc($unit * 8);
   box-sizing: border-box;
   padding-left: calc($unit * 2);
+  background-color: var($--bg-lead);
 }
 
 .theHeader_content {
