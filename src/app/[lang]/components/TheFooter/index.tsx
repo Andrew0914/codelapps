@@ -1,3 +1,4 @@
+"use client";
 import CopyrightIcon from "@mui/icons-material/Copyright";
 import Link from "next/link";
 import TheNav from "@@/components/TheNav";

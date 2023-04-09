@@ -12,6 +12,10 @@ import DownloadRounded from "@mui/icons-material/DownloadRounded";
 
 // TODO: Take out texts from here to  dicitonary
 export default function TheHeader() {
+  const changeTheme = (classTheme: "light" | "dark") => {
+    document.querySelector("body")!.className = classTheme;
+  };
+
   return (
     <header className={`shadow--y ${styles.theHeader}`}>
       <div className={`flex--sb-center ${styles.theHeader_content}`}>
@@ -27,6 +31,10 @@ export default function TheHeader() {
               size="small"
               iconOn={<LightModeIcon fontSize="small" />}
               iconOff={<ModeNightIcon fontSize="small" />}
+              onSwitch={(isActive: boolean) => {
+                changeTheme(isActive ? "light" : "dark");
+                return undefined;
+              }}
             />
           </span>
           <SocialNetworks mode="short" className={styles.theHeader_shortcuts} />
