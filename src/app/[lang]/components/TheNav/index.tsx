@@ -1,10 +1,9 @@
 import styles from "./styles.module.scss";
-import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import Link from "next/link";
 
 interface TheNavProps {
   className?: string;
-  onHamburguerClick?: () => void;
+  layout?: "column" | "row";
 }
 
 interface RouteItem {
@@ -12,7 +11,7 @@ interface RouteItem {
   route: string;
 }
 
-export default function TheNav(props: TheNavProps) {
+export default function TheNav({ className, layout = "row" }: TheNavProps) {
   const routes: RouteItem[] = [
     { name: "Home", route: "/" },
     { name: "Blog", route: "/blog" },
@@ -20,8 +19,8 @@ export default function TheNav(props: TheNavProps) {
   ];
 
   return (
-    <nav className={props.className}>
-      <ul className={styles.theNav_inlineMenu}>
+    <nav className={className}>
+      <ul className={`${styles.theNav_listMenu} ${styles[layout]}`}>
         {routes.map((routeItem) => (
           <li key={routeItem.name}>
             <Link href={routeItem.route} className="text--md text--link">
@@ -30,12 +29,6 @@ export default function TheNav(props: TheNavProps) {
           </li>
         ))}
       </ul>
-      <button
-        className={`flex--center round--sm ${styles.theNav_hamburguerButton}`}
-        onClick={props.onHamburguerClick}
-      >
-        <MenuRoundedIcon />
-      </button>
     </nav>
   );
 }

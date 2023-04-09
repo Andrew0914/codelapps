@@ -1,34 +1,20 @@
 @import "@/styles/_responsive.scss";
 @import "@/styles/_spacing.scss";
-@import "@/styles/_colors.scss";
 
-.theNav_inlineMenu {
-  display: none;
+.theNav_listMenu {
+  padding-inline-start: 0;
+  display: flex;
+  list-style: none;
+  gap: calc($unit * 1);
+}
 
+.row {
+  flex-direction: row;
   @include on-desktop() {
-    padding-inline-start: 0;
-    display: flex;
-    list-style: none;
     gap: calc($unit * 3);
   }
 }
 
-.theNav_hamburguerButton {
-  background-color: transparent;
-  border: none;
-  outline: none;
-  padding: calc($unit * 0.5);
-  box-sizing: border-box;
-  width: 40px;
-  height: 64px;
-  color: var($--text);
-
-  &:active {
-    background-color: var($--primary);
-    color: var($--white);
-  }
-
-  @include on-desktop() {
-    display: none;
-  }
+.column {
+  flex-direction: column;
 }

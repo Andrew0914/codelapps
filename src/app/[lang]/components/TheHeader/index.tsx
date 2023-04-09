@@ -1,11 +1,14 @@
 "use client";
 import TheNav from "../TheNav";
-import Shortcuts from "../Shortcuts";
+import SocialNetworks from "../SocialNetworks";
 import SearchButton from "../ui/SearchButton";
 import SwitchButton from "../ui/SwitchButton";
 import styles from "./styles.module.scss";
+import IconButton from "@@/components/ui/IconButton";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import ModeNightIcon from "@mui/icons-material/ModeNight";
+import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import DownloadRounded from "@mui/icons-material/DownloadRounded";
 
 // TODO: Take out texts from here to  dicitonary
 export default function TheHeader() {
@@ -16,6 +19,9 @@ export default function TheHeader() {
         <div className={`flex--sb-center ${styles.theHeader_actions}`}>
           <SearchButton className={styles.theHeader_searchbar} />
           <TheNav className={styles.theHeader_nav} />
+          <IconButton className={styles.theHeader_hamburguer}>
+            <MenuRoundedIcon />
+          </IconButton>
           <span className={styles.theHeader_themeSwitcher}>
             <SwitchButton
               size="small"
@@ -23,7 +29,10 @@ export default function TheHeader() {
               iconOff={<ModeNightIcon fontSize="small" />}
             />
           </span>
-          <Shortcuts className={styles.theHeader_shortcuts} />
+          <SocialNetworks mode="short" className={styles.theHeader_shortcuts} />
+          <IconButton>
+            <DownloadRounded />
+          </IconButton>
         </div>
       </div>
     </header>

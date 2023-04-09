@@ -62,9 +62,17 @@
 }
 
 .theHeader_nav {
-  order: 2;
+  display: none;
   @include on-desktop() {
-    order: initial;
+    display: initial;
+  }
+}
+
+.theHeader_hamburguer {
+  order: 2;
+  height: 64px;
+  @include on-desktop() {
+    display: none;
   }
 }
 

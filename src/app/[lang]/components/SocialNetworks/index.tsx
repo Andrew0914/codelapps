@@ -1,11 +1,11 @@
 "use client";
 
 import styles from "./styles.module.scss";
-import DownloadIcon from "@mui/icons-material/DownloadSharp";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import TiktokIcon from "./assets/tiktok_icon.svg";
-import Link from "next/link";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
 
 interface Shortcut {
   name: string;
@@ -30,33 +30,38 @@ const shortcuts: Shortcut[] = [
     icon: <TiktokIcon className={styles.shortcuts_tiktok} />,
   },
   {
-    name: "dowload",
-    url: "https://github.com/Andrew0914",
-    icon: (
-      <DownloadIcon
-        className={styles.shortcuts_icon}
-        fontSize="small"
-        viewBox="0 0 22 20"
-      />
-    ),
+    name: "instagram",
+    url: "https://www.instagram.com/andrew_gmx/",
+    icon: <InstagramIcon className={styles.shortcuts_icon} fontSize="small" />,
+  },
+  {
+    name: "facebook",
+    url: "https://www.facebook.com/AndrewGMx",
+    icon: <FacebookIcon className={styles.shortcuts_icon} fontSize="small" />,
   },
 ];
 
-interface ShortcutsProps {
+interface SocialNetworksProps {
   className?: string;
+  mode: "full" | "short";
 }
 
-export default function Shortcuts(props: ShortcutsProps) {
+export default function SocialNetworks({
+  mode = "full",
+  className,
+}: SocialNetworksProps) {
   return (
-    <nav className={props.className}>
+    <nav className={className}>
       <ul className={`inline--list ${styles.shortcuts_list}`}>
-        {shortcuts.map((shortcut) => (
-          <li key={shortcut.name}>
-            <a href={shortcut.url} target="_blank">
-              {shortcut.icon}
-            </a>
-          </li>
-        ))}
+        {shortcuts
+          .slice(0, mode === "short" ? 3 : shortcuts.length)
+          .map((shortcut) => (
+            <li key={shortcut.name}>
+              <a href={shortcut.url} target="_blank">
+                {shortcut.icon}
+              </a>
+            </li>
+          ))}
       </ul>
     </nav>
   );

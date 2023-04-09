@@ -1,0 +1,19 @@
+@import "@/styles/_spacing.scss";
+@import "@/styles/_colors.scss";
+
+.iconButton {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: $unit;
+  box-sizing: border-box;
+  color: var($--text);
+  transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
+
+  &:active,
+  &:hover {
+    background-color: var($--primary);
+    color: var($--white);
+  }
+}
