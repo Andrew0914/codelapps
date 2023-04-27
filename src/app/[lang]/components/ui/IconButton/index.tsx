@@ -1,10 +1,9 @@
 import styles from "./styles.module.scss";
-import { ReactElement, ReactNode } from "react";
+import { PropsWithChildren, ReactElement, ReactNode } from "react";
 
-interface IconButtonProps {
+interface IconButtonProps extends PropsWithChildren {
   className?: string;
   onClick?: () => void;
-  children: ReactNode;
 }
 
 export default function IconButton(props: IconButtonProps) {
