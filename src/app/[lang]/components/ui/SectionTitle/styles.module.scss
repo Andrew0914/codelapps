@@ -1,0 +1,13 @@
+@import "@/styles/spacing.scss";
+@import "@/styles/colors.scss";
+
+.title {
+  gap: calc($unit * 2);
+  & hr {
+    width: calc($unit * 4);
+    height: calc($unit * 0.75);
+    background-color: var($--muted);
+    border: none;
+    border-radius: 1px;
+  }
+}

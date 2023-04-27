@@ -1,0 +1,14 @@
+@import "@/styles/_spacing.scss";
+@import "@/styles/colors.scss";
+
+.tag {
+  padding: calc($unit * 0.5) $unit;
+  background-color: var($--bg-lead);
+  border: 2px solid var($--primary);
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: var($--primary);
+    color: var($--white);
+  }
+}
