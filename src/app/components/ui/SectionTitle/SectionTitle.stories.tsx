@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import SectionTitle, {
   SectionTitleProps,
-} from "@/app/[lang]/components/ui/SectionTitle";
+} from "@/app/components/ui/SectionTitle";
 
 export default {
   title: "Components/ui/SectionTitle",

@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
-import TheHeader from "@/app/[lang]/components/TheHeader";
+import TheHeader from "@/app/components/TheHeader";
 
 export default {
   /* 👇 The title prop is optional.

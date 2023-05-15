@@ -1,9 +1,9 @@
 "use client";
 import CopyrightIcon from "@mui/icons-material/Copyright";
 import Link from "next/link";
-import TheNav from "@@/components/TheNav";
+import TheNav from "../TheNav";
 import styles from "./styles.module.scss";
-import SocialNetworks from "@@/components/SocialNetworks";
+import SocialNetworks from "../SocialNetworks";
 
 export default function TheFooter() {
   return (

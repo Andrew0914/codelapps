@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import SocialNetworks from "@/app/[lang]/components/SocialNetworks";
+import SocialNetworks from "@/app/components/SocialNetworks";
 
 export default {
   title: "Components/SocialNetworks",

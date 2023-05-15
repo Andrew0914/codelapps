@@ -1,4 +1,4 @@
-import "@/styles/globals.scss";
+import "@/styles/_globals.scss";
 import { getDictionary } from "../../../get-dictionary";
 import { Locale } from "../../../i18n-config";
 

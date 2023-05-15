@@ -1,7 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import MainTitle, {
-  MainTitleProps,
-} from "@/app/[lang]/components/ui/MainTitle";
+import MainTitle, { MainTitleProps } from "@/app/components/ui/MainTitle";
 
 export default {
   title: "Components/ui/MainTitle",

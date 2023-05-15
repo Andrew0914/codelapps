@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
-import TheFooter from "@/app/[lang]/components/TheFooter";
+import TheFooter from "@/app/components/TheFooter";
 
 export default {
   /* 👇 The title prop is optional.

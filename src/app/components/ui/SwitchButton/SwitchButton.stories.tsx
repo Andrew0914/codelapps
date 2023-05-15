@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import SwitchButton from "@/app/[lang]/components/ui/SwitchButton";
+import SwitchButton from "@/app/components/ui/SwitchButton";
 import { action } from "@storybook/addon-actions";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import ModeNightIcon from "@mui/icons-material/ModeNight";

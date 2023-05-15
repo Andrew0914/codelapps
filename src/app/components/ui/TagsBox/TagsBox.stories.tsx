@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import TagsBox, { TagsBoxProps } from "@/app/[lang]/components/ui/TagsBox";
+import TagsBox, { TagsBoxProps } from "@/app/components/ui/TagsBox";
 
 export default {
   title: "Components/ui/TagsBox",

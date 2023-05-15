@@ -1,4 +1,4 @@
-import "../src/styles/globals.scss";
+import "../src/styles/_globals.scss";
 import { themes } from "@storybook/theming";
 
 export const parameters = {

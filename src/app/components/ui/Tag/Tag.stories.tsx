@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import Tag, { TagProps } from "@/app/[lang]/components/ui/Tag";
+import Tag, { TagProps } from "@/app/components/ui/Tag";
 
 export default {
   title: "Components/ui/Tag",

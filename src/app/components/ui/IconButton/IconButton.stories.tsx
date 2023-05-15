@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
-import IconButton from "@/app/[lang]/components/ui/IconButton";
+import IconButton from "@/app/components/ui/IconButton";
 import LocalPizzaIcon from "@mui/icons-material/LocalPizza";
 
 export default {

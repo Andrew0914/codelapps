@@ -4,7 +4,7 @@ import SocialNetworks from "../SocialNetworks";
 import SearchButton from "../ui/SearchButton";
 import SwitchButton from "../ui/SwitchButton";
 import styles from "./styles.module.scss";
-import IconButton from "@@/components/ui/IconButton";
+import IconButton from "../ui/IconButton";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import ModeNightIcon from "@mui/icons-material/ModeNight";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
