@@ -8,7 +8,7 @@ export interface SectionTitleProps extends PropsWithChildren {
 export default function SectionTitle(props: SectionTitleProps) {
   return (
     <h5
-      className={`${styles.title} flex--baseline text--content text--big-bold`}
+      className={`${styles.title} flex--none-baseline text--content text--big-bold`}
     >
       {props.children}
       <hr />
