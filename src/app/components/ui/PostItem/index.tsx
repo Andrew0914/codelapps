@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import styles from "./styles.module.scss";
 
@@ -11,8 +12,6 @@ export interface PostItemProps {
 }
 
 export default function PostItem(props: PostItemProps) {
-
-
   return (
     <article
       className={`${styles.postItem} px--2 py--1 round shadow--xy flex--sb-center`}
