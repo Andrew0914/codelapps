@@ -18,7 +18,7 @@ export default function TheHeader() {
 
   return (
     <header className={`shadow--y ${styles.theHeader}`}>
-      <div className={`flex--sb-center ${styles.theHeader_content}`}>
+      <div className={`flex--sb-center ${styles.theHeader_content} content`}>
         <h1 className="text--big-bold text--content">🍕 Codelapps</h1>
         <div className={`flex--sb-center ${styles.theHeader_actions}`}>
           <SearchButton className={styles.theHeader_searchbar} />
@@ -30,6 +30,7 @@ export default function TheHeader() {
             <SwitchButton
               size="small"
               iconOn={<LightModeIcon fontSize="small" />}
+              S
               iconOff={<ModeNightIcon fontSize="small" />}
               onSwitch={(isActive: boolean) => {
                 changeTheme(isActive ? "light" : "dark");

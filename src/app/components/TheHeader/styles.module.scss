@@ -7,16 +7,14 @@
   box-sizing: border-box;
   padding-left: calc($unit * 2);
   background-color: var($--bg-lead);
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
 }
 
 .theHeader_content {
   height: 100%;
-  @include on-desktop() {
-    width: 75%;
-    max-width: calc($unit * 126);
-    min-width: calc($unit * 94);
-    margin: 0 auto;
-  }
 }
 
 .theHeader_actions {
