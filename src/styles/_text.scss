@@ -156,3 +156,7 @@ $text-colors: muted, text, primary, secondary, highlight, accent, danger;
 @include make-text-size-classes("text", $text-content-sizes);
 @include make-text-size-classes("header", $text-header-sizes);
 @include make-text-color-classes();
+
+.text--center {
+  text-align: center;
+}
