@@ -1,7 +1,7 @@
 "use client";
-import SectionTitle from "../SectionTitle";
+import SectionTitle from "../ui/SectionTitle";
 import PostsViewSelector from "../PostsViewSelector";
-import PostItem, { PostItemProps } from "../PostItem";
+import PostItem, { PostItemProps } from "../ui/PostItem";
 import styles from "./styles.module.scss";
 import { useState } from "react";
 import classNames from "classnames";

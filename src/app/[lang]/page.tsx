@@ -2,8 +2,8 @@ import "@/styles/_globals.scss";
 import { getDictionary } from "../../../get-dictionary";
 import { Locale } from "../../../i18n-config";
 import SocialNetworks from "../components/SocialNetworks";
-import TagsBox from "../components/ui/TagsBox";
-import PostsList from "../components/ui/PostsList";
+import PostsList from "../components/PostsList";
+import { PostItemProps } from "../components/ui/PostItem";
 
 const posts: PostItemProps[] = [
   {
