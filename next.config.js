@@ -5,6 +5,9 @@ const nextConfig = {
     appDir: true,
     mdxRs: true,
   },
+  images: {
+    domains: ['images.unsplash.com'],
+  },
   webpack(config) {
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>

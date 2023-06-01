@@ -8,7 +8,7 @@ import SocialNetworks from "../SocialNetworks";
 export default function TheFooter() {
   return (
     <footer className="bg--lead">
-      <div className="content">
+      <div className="content py--2">
         <section className="flex--sb-start">
           <div>
             <span className="text--small-bold">Sections</span>

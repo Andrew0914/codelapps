@@ -1,0 +1,29 @@
+@import "@/styles/responsive";
+.postsList {
+  list-style: none;
+  padding-inline: 0;
+  margin-block: 0;
+  display: grid;
+  gap: 16px;
+  transition: all 0.3s ease;
+  min-height: 500px;
+}
+
+.rows {
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content;
+}
+
+.grid {
+  @include on-desktop {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: max-content;
+    justify-content: space-between;
+  }
+}
+
+.viewSelector {
+  @include on-mobile {
+    display: none;
+  }
+}

@@ -1,6 +1,9 @@
 "use client";
 import Image from "next/image";
 import styles from "./styles.module.scss";
+import { useEffect, useState } from "react";
+import classNames from "classnames";
+import Link from "next/link";
 
 export interface PostItemProps {
   date: string;
@@ -9,15 +12,57 @@ export interface PostItemProps {
   author: string;
   avatar: string;
   thumbnail: string;
+  url: string;
+  mode?: "grid" | "rows";
 }
 
 export default function PostItem(props: PostItemProps) {
+  const [mode, setMode] = useState<"grid" | "rows">(props.mode ?? "rows");
+  const [thumbnailLoaded, setThumbnailLoaded] = useState(true);
+
+  const handleThumbnailLoad = () => {
+    setThumbnailLoaded(true);
+  };
+
+  useEffect(() => {
+    setThumbnailLoaded(false);
+    setMode(props.mode ?? "rows");
+  }, [props.mode]);
+
+  const thumbnailClassNames = classNames("round", styles.postItem_thumbnail, {
+    [styles.postItem_thumbnail_loaded]: thumbnailLoaded,
+    [styles.postItem_thumbnail_grid]: mode === "grid",
+  });
+
+  const postItemClassNames = classNames(
+    styles.postItem,
+    "px--2",
+    "py--2",
+    "round",
+    "shadow--xy",
+    {
+      "flex--sb-center-column": mode === "grid",
+      "flex--sb-center": mode === "rows",
+    }
+  );
+
+  const time = <time className="text--content text--small">{props.date}</time>;
+  const thumbnail = (
+    <Image
+      src={props.thumbnail}
+      alt="Post image"
+      width={mode === "grid" ? 275 : 150}
+      height={mode === "grid" ? 170 : 120}
+      className={thumbnailClassNames}
+      onLoad={handleThumbnailLoad}
+    />
+  );
+
   return (
-    <article
-      className={`${styles.postItem} px--2 py--1 round shadow--xy flex--sb-center`}
-    >
-      <div className={`${styles.postItem_content}`}>
-        <time className="text--content text--small">{props.date}</time>
+    <Link className={postItemClassNames} href={props.url}>
+      <div className={`${styles.postItem_content} w--full`}>
+        {mode === "rows" && time}
+        {mode === "grid" && thumbnail}
         <h2 className={`text--content header--5 ${styles.postItem__title}`}>
           {props.title}
         </h2>
@@ -34,15 +79,9 @@ export default function PostItem(props: PostItemProps) {
           />
           <span className="text--xsmall-bold text--muted">{props.author}</span>
         </div>
+        {mode === "grid" && time}
       </div>
-
-      <Image
-        src={props.thumbnail}
-        alt="Post image"
-        width={110}
-        height={90}
-        className="round--sm"
-      />
-    </article>
+      {mode === "rows" && thumbnail}
+    </Link>
   );
 }

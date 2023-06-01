@@ -13,13 +13,13 @@
 .postItem {
   background-color: var($--bg-lead);
   gap: $unit;
-  max-height: calc($unit * 20);
+  text-decoration: none;
 }
 
 .postItem_content {
   display: flex;
   flex-direction: column;
-  gap: calc($unit * 1);
+  gap: calc($unit * 1.5);
 }
 
 .postItem_footer {
@@ -38,4 +38,21 @@
   @include on-mobile() {
     display: none;
   }
+}
+
+.postItem_thumbnail {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 1.5s cubic-bezier(0.4, 0, 0.2, 1),
+    width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.postItem_thumbnail_loaded {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.postItem_thumbnail_grid {
+  max-width: 100%;
 }

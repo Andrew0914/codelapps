@@ -18,7 +18,6 @@
     "@formatjs/intl-localematcher": "^0.2.32",
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.13",
-    "@next/font": "13.1.6",
     "@next/mdx": "^13.2.4",
     "@types/node": "18.13.0",
     "@types/react": "18.0.28",
