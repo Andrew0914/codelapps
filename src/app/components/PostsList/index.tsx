@@ -18,7 +18,7 @@ export default function PostsList({ posts }: PostsListProps) {
     setMode(mode);
   };
 
-  const postsListClasses = classNames("pt--4", styles.postsList, styles[mode]);
+  const postsListClasses = classNames("pt--3", styles.postsList, styles[mode]);
 
   return (
     <>

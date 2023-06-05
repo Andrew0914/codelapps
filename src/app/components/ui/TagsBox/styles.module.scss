@@ -1,9 +1,8 @@
 @import "@/styles/spacing.scss";
 
 .tagsBox {
-  display: grid;
-  grid-template-columns: repeat(4, min-content);
-  grid-auto-rows: auto;
-  align-content: center;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
   gap: calc($unit * 1);
 }

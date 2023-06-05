@@ -4,6 +4,9 @@ import { Locale } from "../../../i18n-config";
 import SocialNetworks from "../components/SocialNetworks";
 import PostsList from "../components/PostsList";
 import { PostItemProps } from "../components/ui/PostItem";
+import Button from "../components/ui/Button";
+import TagsBox, { TagContent } from "../components/ui/TagsBox";
+import SectionTitle from "../components/ui/SectionTitle";
 
 const posts: PostItemProps[] = [
   {
@@ -41,6 +44,36 @@ const posts: PostItemProps[] = [
     url: "http://codelapps.com",
   },
 ];
+const tags: TagContent[] = [
+  {
+    name: "Javascript",
+    destiny: "/javascript",
+  },
+  {
+    name: "Design",
+    destiny: "/design",
+  },
+  {
+    name: "Elixir",
+    destiny: "/elixir",
+  },
+  {
+    name: "Gaming",
+    destiny: "/gaming",
+  },
+  {
+    name: "React",
+    destiny: "/react",
+  },
+  {
+    name: "HTML",
+    destiny: "/html",
+  },
+  {
+    name: "CSS",
+    destiny: "/css",
+  },
+];
 
 // TODO: get fixed texts from dictionary en - es
 export default async function IndexPage({
@@ -53,7 +86,12 @@ export default async function IndexPage({
     <div className="flex--center-column">
       <section className="w--full bg--lead">
         <div className="content flex--center-column pt--5 pb--3">
-          <h1 className="header--0 text--center">Hola, soy Andrew GM 👋</h1>
+          <div className="flex--sb-center">
+            <h1 className="header--0 text--center">Hola, soy Andrew GM </h1>
+            <span className="waving header--1" role="img" aria-label="hand">
+              👋
+            </span>
+          </div>
           <p className="text--content text--md container--xs text--center mt--4">
             Front-end, Back-end, apps móviles, juegos y más. ¡Bienvenido a mi
             rincón digital donde la creatividad y la tecnología se fusionan!
@@ -64,6 +102,13 @@ export default async function IndexPage({
 
       <section className="content py--4">
         <PostsList posts={posts} />
+        <div className="mt--4 flex--center">
+          <Button className="w--half"> More posts </Button>
+        </div>
+        <div className="my--2">
+          <SectionTitle className="mb--2">Tags</SectionTitle>
+          <TagsBox tags={tags} />
+        </div>
       </section>
     </div>
   );
