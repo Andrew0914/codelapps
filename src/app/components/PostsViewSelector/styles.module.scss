@@ -1,0 +1,6 @@
+@import "@/styles/_spacing.scss";
+
+.postsViewSelector {
+  display: flex;
+  gap: calc($unit * 2);
+}

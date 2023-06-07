@@ -1,0 +1,87 @@
+@import "@/styles/_responsive.scss";
+@import "@/styles/spacing.scss";
+@import "@/styles/colors.scss";
+
+.theHeader {
+  height: calc($unit * 7);
+  box-sizing: border-box;
+  padding-left: calc($unit * 2);
+  background-color: var($--bg-lead);
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.theHeader_content {
+  height: 100%;
+}
+
+.theHeader_actions {
+  height: 100%;
+  gap: $unit;
+  @include on-desktop() {
+    gap: calc($unit * 3);
+  }
+}
+
+.theHeader_themeSwitcher {
+  display: none;
+  @include on-desktop() {
+    display: block;
+  }
+}
+
+.theHeader_shortcuts {
+  & > ul > li:nth-child(1),
+  li:nth-child(2),
+  li:nth-child(3) {
+    display: none;
+    @include on-desktop() {
+      display: flex;
+    }
+  }
+  order: 0;
+  @include on-desktop() {
+    order: initial;
+  }
+  & > ul > li:nth-child(4) > a {
+    width: 40px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include on-desktop() {
+      width: auto;
+      height: auto;
+      align-items: baseline;
+    }
+  }
+}
+
+.theHeader_nav {
+  display: none;
+  @include on-desktop() {
+    display: initial;
+  }
+}
+
+.theHeader_hamburguer {
+  order: 2;
+  height: 64px;
+  @include on-desktop() {
+    display: none;
+  }
+}
+
+.theHeader_searchbar {
+  order: 1;
+  width: 40px;
+  height: 64px;
+  @include on-desktop() {
+    width: auto;
+    height: auto;
+    order: initial;
+  }
+}

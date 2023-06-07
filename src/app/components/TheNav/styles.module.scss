@@ -1,0 +1,20 @@
+@import "@/styles/_responsive.scss";
+@import "@/styles/_spacing.scss";
+
+.theNav_listMenu {
+  padding-inline-start: 0;
+  display: flex;
+  list-style: none;
+  gap: calc($unit * 1);
+}
+
+.row {
+  flex-direction: row;
+  @include on-desktop() {
+    gap: calc($unit * 3);
+  }
+}
+
+.column {
+  flex-direction: column;
+}

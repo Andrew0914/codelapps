@@ -1,0 +1,10 @@
+@import "@/styles/colors.scss";
+
+.radioIcon {
+  cursor: pointer;
+  color: var($--text);
+}
+
+.active {
+  color: var($--primary);
+}

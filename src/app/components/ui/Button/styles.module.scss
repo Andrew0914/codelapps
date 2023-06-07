@@ -1,0 +1,48 @@
+@import "@/styles/_spacing.scss";
+@import "@/styles/_colors.scss";
+
+.button {
+  border-radius: calc($unit * 0.5);
+  outline: none;
+  border: none;
+  padding: calc($unit / 2) $unit;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  color: var($--white);
+  font-family: "Open Sans", sans-serif;
+}
+
+.primary {
+  background-color: var($--primary);
+  &:hover {
+    filter: drop-shadow(0 0 0.15rem var($--primary)) brightness(1.075);
+  }
+}
+
+.secondary {
+  background-color: var($--secondary);
+  &:hover {
+    filter: drop-shadow(0 0 0.15rem var($--secondary)) brightness(1.075);
+  }
+}
+
+.accent {
+  background-color: var($--accent);
+  &:hover {
+    filter: drop-shadow(0 0 0.15rem var($--accent)) brightness(1.075);
+  }
+}
+
+.danger {
+  background-color: var($--danger);
+  &:hover {
+    filter: drop-shadow(0 0 0.15rem var($--danger)) brightness(1.075);
+  }
+}
+
+.highlight {
+  background-color: var($--highlight);
+  &:hover {
+    filter: drop-shadow(0 0 0.15rem var($--highlight)) brightness(1.075);
+  }
+}

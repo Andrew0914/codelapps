@@ -1,0 +1,8 @@
+@import "@/styles/spacing.scss";
+
+.tagsBox {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  gap: calc($unit * 1);
+}

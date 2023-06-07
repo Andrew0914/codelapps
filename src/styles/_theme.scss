@@ -1,11 +1,3 @@
-// TODO: when implementing manual change theme
-// :root.light {
-//   @include spread-map($theme-map-light);
-// }
-// :root.dark {
-//   @include spread-map($theme-map-dark);
-// }
-
 :root {
   @include spread-map($theme-map-light);
 }

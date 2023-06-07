@@ -1,0 +1,54 @@
+@import "@/styles/_responsive.scss";
+@import "@/styles/_spacing.scss";
+@import "@/styles/_colors.scss";
+
+.searchButton {
+  transition: all 0.3s ease-in-out;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  & > svg {
+    width: 24px;
+    height: 24px;
+    @include on-desktop() {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &:hover > svg {
+    fill: var($--primary);
+    @include on-desktop() {
+      fill: var($--white);
+    }
+  }
+
+  @include on-desktop() {
+    background-color: var($--bg-content);
+    border: 1px solid var($--primary);
+    gap: calc($unit * 0.5);
+    padding: 3px 6px;
+    &:hover {
+      background-color: var($--primary);
+      .searchButton_bit {
+        background-color: var($--secondary);
+        color: var($--white);
+      }
+    }
+  }
+}
+
+.searchButton_bit {
+  background-color: var($--bg-lead);
+  border: 1px solid var($--secondary);
+  transition: all 0.3s ease-in-out;
+  padding: 2px 6px;
+}
+
+.searchButton_desktop {
+  display: none;
+  @include on-desktop() {
+    display: block;
+  }
+}

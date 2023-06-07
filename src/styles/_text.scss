@@ -21,12 +21,12 @@ $text-content-sizes: (
     normal,
   ),
   --small: (
-    0.875rem,
+    0.75rem,
     1.25rem,
     normal,
   ),
   --xsmall: (
-    0.75rem,
+    0.6rem,
     1rem,
     normal,
   ),
@@ -41,12 +41,12 @@ $text-content-sizes: (
     bold,
   ),
   --small-bold: (
-    0.875rem,
+    0.75rem,
     1.25rem,
     bold,
   ),
   --xsmall-bold: (
-    0.75rem,
+    0.6rem,
     1rem,
     bold,
   ),
@@ -104,6 +104,7 @@ $text-header-sizes: (
   color: var(--highlight);
   text-decoration: underline;
   cursor: pointer;
+  transition: color 0.3s ease-in-out;
 
   &:visited {
     color: var(--muted);
@@ -124,7 +125,7 @@ $text-header-sizes: (
   text-fill-color: transparent;
   font-weight: bold;
   font-size: 2.25rem;
-  line-height: 2.5rem;
+  line-height: 2.75rem;
   letter-spacing: 0.05rem;
   @include on-desktop() {
     font-size: 3.25rem;
@@ -155,3 +156,7 @@ $text-colors: muted, text, primary, secondary, highlight, accent, danger;
 @include make-text-size-classes("text", $text-content-sizes);
 @include make-text-size-classes("header", $text-header-sizes);
 @include make-text-color-classes();
+
+.text--center {
+  text-align: center;
+}

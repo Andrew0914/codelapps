@@ -1,0 +1,12 @@
+@import "@/styles/spacing.scss";
+@import "@/styles/colors.scss";
+
+.theFooter_metadata {
+  gap: $unit;
+}
+
+.theFooter_divider {
+  background-color: var($--text);
+  height: 1px;
+  border-style: hidden;
+}

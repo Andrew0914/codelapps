@@ -1,0 +1,89 @@
+@import "@/styles/_responsive.scss";
+@import "@/styles/_spacing.scss";
+@import "@/styles/_colors.scss";
+
+.switchButton {
+  position: relative;
+  display: inline-block;
+}
+
+/** SIZES **/
+.small {
+  width: 48px;
+  height: 24px;
+  & .switchButton_circle {
+    height: 16px;
+    width: 16px;
+  }
+}
+
+.medium {
+  width: 64px;
+  height: 32px;
+  & .switchButton_circle {
+    height: 24px;
+    width: 24px;
+  }
+}
+
+.big {
+  width: 72px;
+  height: 36px;
+  & .switchButton_circle {
+    height: 28px;
+    width: 28px;
+  }
+}
+
+.switchButton_input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+
+  &:checked + .switchButton_circle + .switchButton_slider {
+    background-color: var($--primary);
+  }
+
+  &:checked + .switchButton_circle {
+    transform: translateX(32px);
+  }
+
+  &:checked + .switchButton_circle > svg {
+    fill: var($--primary);
+  }
+
+  &:not(:checked) + .switchButton_circle > svg {
+    fill: var($--secondary);
+  }
+}
+
+.small .switchButton_input:checked + .switchButton_circle {
+  transform: translateX(24px);
+}
+
+.switchButton_slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var($--secondary);
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.switchButton_circle {
+  position: absolute;
+  content: "";
+  left: 4px;
+  bottom: 5px;
+  background-color: transparent;
+  transition: 0.4s;
+  border-radius: 50%;
+  z-index: 1;
+  background-color: var($--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

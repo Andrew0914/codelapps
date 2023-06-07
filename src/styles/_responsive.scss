@@ -10,13 +10,25 @@ $breakpoints: (
 );
 
 @mixin on-mobile() {
-  @media screen and (max-width: map.get($breakpoints, "md")) {
+  @media screen and (max-width: map.get($breakpoints, "lg")) {
     @content;
   }
 }
 
 @mixin on-desktop() {
-  @media screen and (min-width: map.get($breakpoints, "md")) {
+  @media screen and (min-width: map.get($breakpoints, "lg")) {
     @content;
+  }
+}
+
+@mixin on-light() {
+  :root .light {
+    @include spread-map($theme-map-dark);
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      @include spread-map($theme-map-dark);
+    }
   }
 }
