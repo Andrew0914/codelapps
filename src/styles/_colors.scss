@@ -1,3 +1,4 @@
+// TODO: UPDATE STORYBOOK
 // Variable names 🍕
 $--muted: --muted;
 $--text: --text;
@@ -13,6 +14,7 @@ $--vertical-shadow: --vertical-shadow;
 $--shadow: --shadow;
 $--white: --white;
 $--black: --black;
+$--bg-blur: --bg-blur;
 
 // Default theme
 $theme-map-light: (
@@ -30,6 +32,7 @@ $theme-map-light: (
   $--shadow: rgba(78, 78, 78, 0.4),
   $--white: #fefeff,
   $--black: #102011,
+  $--bg-blur: rgba(0, 0, 0, 0.1),
 );
 
 // Override the default light theme
@@ -48,4 +51,5 @@ $theme-map-dark: (
   $--shadow: rgb(0, 0, 0, 0.5),
   $--white: #fefeff,
   $--black: #102011,
+  $--bg-blur: rgba(255, 255, 255, 0.1),
 );

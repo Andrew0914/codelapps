@@ -19,3 +19,23 @@ main {
   max-width: 100vw;
   overflow-x: hidden;
 }
+
+pre {
+  width: 100%;
+}
+
+blockquote {
+  border-left: calc($unit * 0.5) solid var($--accent);
+  padding-left: $unit;
+  background-color: var($--bg-blur);
+  border-radius: 2px;
+}
+
+// TODO: Take out alogn with select in Code component into own component
+select {
+  border-width: 1px;
+  border-color: var($--secondary);
+  &:active {
+    outline-width: 1px;
+  }
+}
