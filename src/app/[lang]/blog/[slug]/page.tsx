@@ -5,7 +5,7 @@ export default async function PostPage(params) {
   const Post = dynamic(() => import(`@/app/posts/${params.params.slug}.mdx`));
 
   return (
-    <section className="content flex--center-column">
+    <section className="content">
       <Post components={components} />
     </section>
   );
