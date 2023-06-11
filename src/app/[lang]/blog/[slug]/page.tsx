@@ -6,6 +6,8 @@ import Link from "next/link";
 import { Post, PostParams } from "@/app/models/Post";
 import { parseToHumanDate } from "@/utils/Date";
 import { Component as MDXPost } from "mdx/types";
+import AuthorBadge from "@/app/components/ui/AuthorBadge";
+import RecommendationBadge from "@/app/components/ui/RecommendationBadge";
 
 export default async function PostPage({ params }: PostParams) {
   const Post = dynamic(
@@ -20,15 +22,13 @@ export default async function PostPage({ params }: PostParams) {
 
   const recommendations =
     meta?.recommendations &&
-    meta?.recommendations.map((recommendation) => {
+    meta?.recommendations.map((recommendation, index) => {
       return (
-        <Link
-          key={recommendation}
-          href={recommendation}
-          className="p--1 shadow--y border--highlight round--sm"
-        >
-          {recommendation}
-        </Link>
+        <RecommendationBadge
+          key={recommendation.slug}
+          {...recommendation}
+          index={index + 1}
+        />
       );
     });
 
@@ -38,13 +38,12 @@ export default async function PostPage({ params }: PostParams) {
         <h1 className="header--0 py--1">{meta.title}</h1>
         <h5 className="header--5 text--muted py--1">{meta.subtitle}</h5>
         {tags}
-        <span className="my--1">
-          {/* TODO: Create component for author */}
-          <span className="text--small">🤖 {meta.author.name}</span>|
+        <div className="my--1 flex--sb-center">
+          <AuthorBadge {...meta.author} className="mr--2" />
           <time className="text--muted text--small">
             {parseToHumanDate(meta.date)}
           </time>
-        </span>
+        </div>
         <Image
           alt="post thumbnail"
           src={meta.thumbnail}
@@ -59,8 +58,7 @@ export default async function PostPage({ params }: PostParams) {
       <div className="my--3">
         <h5 className="header--5">Recommended posts:</h5>
         <hr className="my--3" />
-        {/* TODO: Improve this UI, maybe recommendations could be post items*/}
-        {recommendations}
+        <div className="mb--3 grid--auto">{recommendations}</div>
       </div>
     </section>
   );

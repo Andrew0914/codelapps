@@ -1,6 +1,6 @@
 export interface Author {
   name: string;
-  avataUrl: string;
+  avatarUrl: string;
 }
 
 export interface Tag {
@@ -8,7 +8,12 @@ export interface Tag {
   url: string;
 }
 
-export interface Post {
+export interface PostBase {
+  title: string;
+  slug: string;
+  thumbnail: string;
+}
+export interface Post extends PostBase {
   slug: string;
   title: string;
   author: Author;
@@ -17,7 +22,7 @@ export interface Post {
   excerpt?: string;
   thumbnail: string;
   tags?: Tag[];
-  recommendations?: string[];
+  recommendations?: PostBase[];
 }
 
 export interface PostParams {

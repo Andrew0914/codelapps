@@ -1,4 +1,4 @@
-export function parseToHumanDate(date: Date, separator = "-") {
+export function parseToHumanDate(date: Date, separator = "/") {
   return `${date.getDate()} ${separator} ${fixeMonthDigit(
     date.getMonth()
   )} ${separator} ${date.getFullYear()}`;

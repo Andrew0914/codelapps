@@ -1,0 +1,20 @@
+@import "@/styles/spacing.scss";
+@import "@/styles/colors.scss";
+
+.recommendation {
+  display: flex;
+  align-items: center;
+  gap: calc($unit * 1);
+  width: fit-content;
+  text-decoration: none;
+}
+
+.index {
+  font-size: calc($unit * 3);
+  font-weight: 600;
+  letter-spacing: 4px;
+}
+
+.title {
+  white-space: nowrap;
+}
