@@ -1,9 +1,8 @@
-import Button from "../components/ui/Button";
+import Button from "@/app/components/ui/Button";
 import Link from "next/link";
 import Image from "next/image";
-import IconButton from "../components/ui/IconButton";
-import MainTitle from "../components/ui/MainTitle";
-import SwitchButton from "../components/ui/SwitchButton";
+import IconButton from "@/app/components/ui/IconButton";
+import SwitchButton from "@/app/components/ui/SwitchButton";
 import { PropsWithChildren } from "react";
 import Code from "@/app/components/ui/Code";
 
