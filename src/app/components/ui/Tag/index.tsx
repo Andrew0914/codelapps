@@ -6,6 +6,7 @@ export interface TagProps extends PropsWithChildren {
   href: string;
 }
 
+// TODO: Implement tagging functionallity
 export default function Tag(props: TagProps) {
   return (
     <Link

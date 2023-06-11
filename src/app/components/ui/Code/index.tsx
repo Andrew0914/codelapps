@@ -51,7 +51,7 @@ export default function code({ className, ...props }: CodeProps) {
         >
           {Object.keys(themes).map((key) => {
             return (
-              <option key={key} value={key} selected={key === theme}>
+              <option key={key} value={key}>
                 {key}
               </option>
             );
