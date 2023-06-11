@@ -10,6 +10,7 @@ import AuthorBadge from "@/app/components/ui/AuthorBadge";
 import RecommendationBadge from "@/app/components/ui/RecommendationBadge";
 
 export default async function PostPage({ params }: PostParams) {
+  // TODO: 404 validation if slug does not exits
   const Post = dynamic(
     () => import(`@/app/posts/${params.slug}.mdx`)
   ) as MDXPost<any>;
