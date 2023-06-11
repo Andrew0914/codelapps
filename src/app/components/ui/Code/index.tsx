@@ -30,7 +30,7 @@ const themes = {
 };
 
 // TODO: Make storybook
-export default function code({ className, ...props }: CodeProps) {
+export default function Code({ className, ...props }: CodeProps) {
   const [theme, setTheme] = useState<keyof typeof themes>("materialDark");
 
   const match = /language-(\w+)/.exec(className || "");
