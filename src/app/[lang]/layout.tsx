@@ -1,3 +1,4 @@
+import "@/styles/_globals.scss";
 import { i18n } from "../../../i18n-config";
 import TheHeader from "@/app/components/TheHeader";
 import TheFooter from "@/app/components/TheFooter";

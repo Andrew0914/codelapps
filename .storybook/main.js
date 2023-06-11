@@ -1,7 +1,5 @@
 const TsconfigPathsPlugin = require("../node_modules/tsconfig-paths-webpack-plugin");
 const path = require("path");
-
-
 module.exports = {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
@@ -11,24 +9,19 @@ module.exports = {
     {
       name: "storybook-addon-sass-postcss",
       options: {
-        sassLoaderOptions: {
-          implementation: require("sass"),
-        },
+        sassLoaderOptions: {},
       },
     },
-    {
-      name: "storybook-addon-next",
-      options: {
-        nextConfigPath: path.resolve(__dirname, '../next.config.js')
-      }
-    },
     "storybook-dark-mode",
+    "@storybook/addon-mdx-gfm",
   ],
-  framework: "@storybook/react",
-  core: {
-    builder: "@storybook/builder-webpack5",
+  framework: {
+    name: "@storybook/nextjs",
+    options: {
+      implementation: require("sass"),
+    },
   },
-  webpackFinal: async (config, {configType}) => {
+  webpackFinal: async (config, { configType }) => {
     // DETECT ALIASES FROM TS CONFIG
     config.resolve.plugins = [
       ...(config.resolve.plugins || []),
@@ -39,9 +32,8 @@ module.exports = {
 
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>
-      rule.test?.test?.('.svg'),
-    )
-
+      rule.test?.test?.(".svg")
+    );
     config.module.rules.push(
       // Reapply the existing rule, but only for svg imports ending in ?url
       {
@@ -53,14 +45,19 @@ module.exports = {
       {
         test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
-        resourceQuery: { not: /url/ }, // exclude if *.svg?url
-        use: ['@svgr/webpack'],
-      },
-    )
+        resourceQuery: {
+          not: /url/,
+        },
+        // exclude if *.svg?url
+        use: ["@svgr/webpack"],
+      }
+    );
 
     // Modify the file loader rule to ignore *.svg, since we have it handled now.
-    fileLoaderRule.exclude = /\.svg$/i
-    
+    fileLoaderRule.exclude = /\.svg$/i;
     return config;
+  },
+  docs: {
+    autodocs: true,
   },
 };

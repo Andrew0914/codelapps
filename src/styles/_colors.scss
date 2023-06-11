@@ -1,3 +1,4 @@
+// TODO: UPDATE STORYBOOK
 // Variable names 🍕
 $--muted: --muted;
 $--text: --text;
@@ -13,6 +14,7 @@ $--vertical-shadow: --vertical-shadow;
 $--shadow: --shadow;
 $--white: --white;
 $--black: --black;
+$--bg-blur: --bg-blur;
 
 // Default theme
 $theme-map-light: (
@@ -23,13 +25,14 @@ $theme-map-light: (
   $--highlight: #386676,
   $--accent: #d8701a,
   $--danger: #de3019,
-  $--bg-content: #f2f4f7,
-  $--bg-lead: #ffffff,
+  $--bg-content: #ffffff,
+  $--bg-lead: #f2f4f7,
   $--text-gradient: linear-gradient(180deg, #7db800 50.31%, #ed0900 100%),
   $--vertical-shadow: rgba(78, 78, 78, 0.25),
   $--shadow: rgba(78, 78, 78, 0.4),
   $--white: #fefeff,
   $--black: #102011,
+  $--bg-blur: rgba(0, 0, 0, 0.1),
 );
 
 // Override the default light theme
@@ -41,11 +44,12 @@ $theme-map-dark: (
   $--highlight: #ffc6ee,
   $--accent: #84e016,
   $--danger: #f33636,
-  $--bg-content: #282828,
-  $--bg-lead: #1f1f1f,
+  $--bg-content: #1f1f1f,
+  $--bg-lead: #282828,
   $--text-gradient: linear-gradient(180deg, #50feb0 24.5%, #6494ff 103.25%),
   $--vertical-shadow: rgb(0, 0, 0, 0.25),
   $--shadow: rgb(0, 0, 0, 0.5),
   $--white: #fefeff,
   $--black: #102011,
+  $--bg-blur: rgba(255, 255, 255, 0.1),
 );

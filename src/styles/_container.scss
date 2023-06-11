@@ -1,9 +1,16 @@
+// TODO: create storybook
 @import "./responsive";
+@import "./spacing";
 
 .flex--sb-center {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.flex--end {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .flex--sb-center-column {
@@ -43,6 +50,13 @@
 
 .flex {
   display: flex;
+}
+
+.grid--auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-gap: 16px;
+  justify-items: center;
 }
 
 .content {

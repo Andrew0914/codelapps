@@ -1,21 +1,19 @@
+import { Tag as TagProps } from "@/app/models/Post";
+import classNames from "classnames";
 import Tag from "../Tag";
 import styles from "./styles.module.scss";
-
-export interface TagContent {
-  name: string;
-  destiny: string;
-}
-
 export interface TagsBoxProps {
-  tags: TagContent[];
+  tags: TagProps[];
+  className?: string;
 }
 
 export default function TagsBox(props: TagsBoxProps) {
+  const classes = classNames(props.className, styles.tagsBox);
   return (
-    <aside className={styles.tagsBox}>
+    <aside className={classes}>
       {props.tags.map((tag, index) => (
         <div key={`${index}-${tag.name}`} className="flex--center">
-          <Tag href={tag.destiny}>{tag.name}</Tag>
+          <Tag href={tag.url}>{tag.name}</Tag>
         </div>
       ))}
     </aside>
