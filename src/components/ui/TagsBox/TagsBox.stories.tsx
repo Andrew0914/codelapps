@@ -12,12 +12,12 @@ export const Default: ComponentStory<typeof TagsBox> = (args: TagsBoxProps) => (
 
 Default.args = {
   tags: [
-    { name: "Javascript", destiny: "/javascript" },
-    { name: "PHP", destiny: "/php" },
-    { name: "Design", destiny: "/design" },
-    { name: "Java", destiny: "/java" },
-    { name: "Elixir", destiny: "/Elixir" },
-    { name: "Svg", destiny: "/Svg" },
-    { name: "Flutter", destiny: "/flutter" },
+    { name: "Javascript", url: "/javascript" },
+    { name: "PHP", url: "/php" },
+    { name: "Design", url: "/design" },
+    { name: "Java", url: "/java" },
+    { name: "Elixir", url: "/Elixir" },
+    { name: "Svg", url: "/Svg" },
+    { name: "Flutter", url: "/flutter" },
   ],
 };
