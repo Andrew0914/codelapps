@@ -1,11 +1,12 @@
 import { getDictionary } from "../../../get-dictionary";
 import { Locale } from "../../../i18n-config";
-import SocialNetworks from "../components/SocialNetworks";
-import PostsList from "../components/PostsList";
-import { PostItemProps } from "../components/ui/PostItem";
-import Button from "../components/ui/Button";
-import TagsBox, { TagContent } from "../components/ui/TagsBox";
-import SectionTitle from "../components/ui/SectionTitle";
+import SocialNetworks from "@/components/SocialNetworks";
+import PostsList from "@/components/PostsList";
+import { PostItemProps } from "@/components/ui/PostItem";
+import Button from "@/components/ui/Button";
+import TagsBox from "@/components/ui/TagsBox";
+import SectionTitle from "@/components/ui/SectionTitle";
+import { Tag } from "@/models/Post";
 
 const posts: PostItemProps[] = [
   {
@@ -43,34 +44,34 @@ const posts: PostItemProps[] = [
     url: "http://codelapps.com",
   },
 ];
-const tags: TagContent[] = [
+const tags: Tag[] = [
   {
     name: "Javascript",
-    destiny: "/javascript",
+    url: "/javascript",
   },
   {
     name: "Design",
-    destiny: "/design",
+    url: "/design",
   },
   {
     name: "Elixir",
-    destiny: "/elixir",
+    url: "/elixir",
   },
   {
     name: "Gaming",
-    destiny: "/gaming",
+    url: "/gaming",
   },
   {
     name: "React",
-    destiny: "/react",
+    url: "/react",
   },
   {
     name: "HTML",
-    destiny: "/html",
+    url: "/html",
   },
   {
     name: "CSS",
-    destiny: "/css",
+    url: "/css",
   },
 ];
 
