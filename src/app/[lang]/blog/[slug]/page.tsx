@@ -1,21 +1,21 @@
 import dynamic from "next/dynamic";
 import components from "@/utils/PostsUIArranger";
 import Image from "next/image";
-import TagsBox from "@/app/components/ui/TagsBox";
+import TagsBox from "@/components/ui/TagsBox";
 import Link from "next/link";
-import { Post, PostParams } from "@/app/models/Post";
+import { Post, PostParams } from "@/models/Post";
 import { parseToHumanDate } from "@/utils/Date";
 import { Component as MDXPost } from "mdx/types";
-import AuthorBadge from "@/app/components/ui/AuthorBadge";
-import RecommendationBadge from "@/app/components/ui/RecommendationBadge";
+import AuthorBadge from "@/components/ui/AuthorBadge";
+import RecommendationBadge from "@/components/ui/RecommendationBadge";
 
 export default async function PostPage({ params }: PostParams) {
   // TODO: 404 validation if slug does not exits
   const Post = dynamic(
-    () => import(`@/app/posts/${params.slug}.mdx`)
+    () => import(`@/posts/${params.slug}.mdx`)
   ) as MDXPost<any>;
 
-  const { meta } = (await import(`@/app/posts/${params.slug}.mdx`)) as {
+  const { meta } = (await import(`@/posts/${params.slug}.mdx`)) as {
     meta: Post;
   };
 

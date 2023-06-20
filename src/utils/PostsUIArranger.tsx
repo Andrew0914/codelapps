@@ -1,10 +1,10 @@
-import Button from "@/app/components/ui/Button";
+import Button from "@/components/ui/Button";
 import Link from "next/link";
 import Image from "next/image";
-import IconButton from "@/app/components/ui/IconButton";
-import SwitchButton from "@/app/components/ui/SwitchButton";
+import IconButton from "@/components/ui/IconButton";
+import SwitchButton from "@/components/ui/SwitchButton";
 import { PropsWithChildren } from "react";
-import Code from "@/app/components/ui/Code";
+import Code from "@/components/ui/Code";
 
 const textComponents = {
   h1: ({ children }: PropsWithChildren) => (
