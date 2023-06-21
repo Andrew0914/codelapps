@@ -24,10 +24,3 @@ export interface Post extends PostBase {
   tags?: Tag[];
   recommendations?: PostBase[];
 }
-
-export interface PostParams {
-  params: {
-    lang: "en" | "es";
-    slug: string;
-  };
-}

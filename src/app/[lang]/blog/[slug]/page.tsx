@@ -1,11 +1,12 @@
 import dynamic from "next/dynamic";
 import components from "@/utils/PostsUIArranger";
-import { Post, PostParams } from "@/models/Post";
+import { Post } from "@/models/Post";
 import { Component as MDXPost } from "mdx/types";
 import PostHeader from "@/components/PostHeader";
 import PostFooter from "@/components/PostFooter";
+import { RoutePostParams } from "@/models/RouteParams";
 
-export default async function PostPage({ params }: PostParams) {
+export default async function PostPage({ params }: RoutePostParams) {
   // TODO: 404 validation if slug does not exits
   const PostContent = dynamic(
     () => import(`@/posts/${params.slug}.mdx`)

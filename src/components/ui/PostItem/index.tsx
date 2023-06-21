@@ -4,16 +4,11 @@ import styles from "./styles.module.scss";
 import { useEffect, useState } from "react";
 import classNames from "classnames";
 import Link from "next/link";
+import { Post } from "@/models/Post";
+import { parseToHumanDate } from "@/utils/Date";
 
-export interface PostItemProps {
-  date: string;
-  title: string;
-  excerpt: string;
-  author: string;
-  avatar: string;
-  thumbnail: string;
-  url: string;
-  mode?: "grid" | "rows";
+export interface PostItemProps extends Post {
+  mode? : 'grid' | 'rows'
 }
 
 export default function PostItem(props: PostItemProps) {
@@ -46,7 +41,7 @@ export default function PostItem(props: PostItemProps) {
     }
   );
 
-  const time = <time className="text--content text--small">{props.date}</time>;
+  const time = <time className="text--content text--small">{parseToHumanDate(props.date)}</time>;
   const thumbnail = (
     <Image
       src={props.thumbnail}
@@ -59,7 +54,7 @@ export default function PostItem(props: PostItemProps) {
   );
 
   return (
-    <Link className={postItemClassNames} href={props.url}>
+    <Link className={postItemClassNames} href={`blog/${props.slug}`}>
       <div className={`${styles.postItem_content} w--full`}>
         {mode === "rows" && time}
         {mode === "grid" && thumbnail}
@@ -71,13 +66,13 @@ export default function PostItem(props: PostItemProps) {
         </p>
         <div className={styles.postItem_footer}>
           <Image
-            src={props.avatar}
+            src={props.author.avatarUrl}
             alt="Post image"
             width={20}
             height={20}
             className="circle"
           />
-          <span className="text--xsmall-bold text--muted">{props.author}</span>
+          <span className="text--xsmall-bold text--muted">{props.author.name}</span>
         </div>
         {mode === "grid" && time}
       </div>
