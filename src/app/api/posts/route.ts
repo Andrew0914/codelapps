@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getPostsMetaData } from "./controller";
+import { getAllPostsMetaData } from "./controller";
 
 export async function GET(request: NextRequest) {
-  const posts = await getPostsMetaData();
+  const posts = await getAllPostsMetaData();
   return NextResponse.json({ posts });
 }

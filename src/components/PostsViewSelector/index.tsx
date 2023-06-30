@@ -19,7 +19,7 @@ export default function PostsViewSelector({
     },
     [onPostsViewMode]
   );
-
+  // TODO: add ordering behaviour Older | Newer
   return (
     <RadioIconGroup
       className={`${styles.postsViewSelector}  ${className}`}
