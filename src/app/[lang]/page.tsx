@@ -2,13 +2,10 @@ import { getDictionary } from "../../../get-dictionary";
 import { Locale } from "../../../i18n-config";
 import SocialNetworks from "@/components/SocialNetworks";
 import PostsList from "@/components/PostsList";
-import { PostItemProps } from "@/components/ui/PostItem";
-import Button from "@/components/ui/Button";
 import TagsBox from "@/components/ui/TagsBox";
 import SectionTitle from "@/components/ui/SectionTitle";
-import { Tag } from "@/models/Post";
-
-
+import { getAllPostsMetaData } from "../api/posts/controller";
+import { getAllTags } from "../api/tags/controller";
 
 // TODO: get fixed texts from dictionary en - es
 export default async function IndexPage({
@@ -16,8 +13,9 @@ export default async function IndexPage({
 }: {
   params: { lang: Locale };
 }) {
-  
   const dictionary = await getDictionary(lang);
+  const posts = await getAllPostsMetaData();
+  const tags = await getAllTags();
 
   return (
     <div className="flex--center-column">
@@ -38,11 +36,11 @@ export default async function IndexPage({
       </header>
 
       <section className="content py--4">
-        <PostsList posts={[]} />
+        <PostsList posts={posts} />
 
         <div className="my--2">
           <SectionTitle className="mb--2">Tags</SectionTitle>
-          <TagsBox tags={[]} />
+          <TagsBox tags={tags} />
         </div>
       </section>
     </div>
