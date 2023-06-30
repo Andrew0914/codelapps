@@ -13,7 +13,7 @@ export default function TagsBox(props: TagsBoxProps) {
     <aside className={classes}>
       {props.tags.map((tag, index) => (
         <div key={`${index}-${tag.name}`} className="flex--center">
-          <Tag href={tag.url}>{tag.name}</Tag>
+          <Tag {...tag}>{tag.name}</Tag>
         </div>
       ))}
     </aside>

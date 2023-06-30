@@ -19,3 +19,12 @@ export async function getAllPostsMetaData() {
 
   return Promise.all(postsMetaData);
 }
+
+export async function getPosts({ tag }: { tag?: string }) {
+  const posts = await getAllPostsMetaData();
+  if (!tag) return posts;
+
+  return posts.filter(
+    (post) => post.tags!.filter((postTag) => postTag.url === tag).length >= 1
+  );
+}

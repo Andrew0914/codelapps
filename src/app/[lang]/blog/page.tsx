@@ -1,4 +1,4 @@
-import { getAllPostsMetaData } from "@/app/api/posts/controller";
+import { getAllPostsMetaData, getPosts } from "@/app/api/posts/controller";
 import { getAllTags } from "@/app/api/tags/controller";
 import PostsList from "@/components/PostsList";
 import SectionTitle from "@/components/ui/SectionTitle";
@@ -6,8 +6,7 @@ import TagsBox from "@/components/ui/TagsBox";
 import { RouteBlogParams } from "@/models/RouteParams";
 
 export default async function BlogPage({ searchParams }: RouteBlogParams) {
-  // TODO: get current tag posts or all posts depend on params
-  const posts = await getAllPostsMetaData();
+  const posts = await getPosts({ tag: searchParams.tag });
   const tags = await getAllTags();
 
   return (
