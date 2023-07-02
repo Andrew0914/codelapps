@@ -18,7 +18,7 @@ export default function RecommendationBadge(props: RecommendationProps) {
   );
 
   return (
-    <Link className={classes} href={props.slug}>
+    <Link className={classes} href={`blog/${props.slug}`}>
       <span className={`${styles.index} text--highlight`}>0{props.index}</span>
       <span className={`${styles.title} text--content`}>{props.title}</span>
       <Image

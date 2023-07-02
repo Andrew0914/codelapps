@@ -17,7 +17,7 @@ export interface Post extends PostBase {
   slug: string;
   title: string;
   author: Author;
-  date: Date;
+  date: string;
   subtitle?: string;
   excerpt?: string;
   thumbnail: string;

@@ -36,7 +36,7 @@ export default async function IndexPage({
       </header>
 
       <section className="content py--4">
-        <PostsList posts={posts} />
+        <PostsList posts={posts} shouldShowOderFilters={false} />
 
         <div className="my--2">
           <SectionTitle className="mb--2">Tags</SectionTitle>

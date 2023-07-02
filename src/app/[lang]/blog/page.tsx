@@ -30,7 +30,7 @@ export default async function BlogPage({
         </header>
 
         <section className="content py--4">
-          <PostsList posts={posts} />
+          <PostsList posts={posts} shouldShowOderFilters={true} />
           <div className="my--2">
             <SectionTitle className="mb--2">Tags</SectionTitle>
             <TagsBox tags={tags} />

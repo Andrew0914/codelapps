@@ -8,7 +8,7 @@ import { Post } from "@/models/Post";
 import { parseToHumanDate } from "@/utils/Date";
 
 export interface PostItemProps extends Post {
-  mode? : 'grid' | 'rows'
+  mode?: "grid" | "rows";
 }
 
 export default function PostItem(props: PostItemProps) {
@@ -41,7 +41,11 @@ export default function PostItem(props: PostItemProps) {
     }
   );
 
-  const time = <time className="text--content text--small">{parseToHumanDate(props.date)}</time>;
+  const time = (
+    <time className="text--content text--small">
+      {parseToHumanDate(new Date(props.date))}
+    </time>
+  );
   const thumbnail = (
     <Image
       src={props.thumbnail}
@@ -72,7 +76,9 @@ export default function PostItem(props: PostItemProps) {
             height={20}
             className="circle"
           />
-          <span className="text--xsmall-bold text--muted">{props.author.name}</span>
+          <span className="text--xsmall-bold text--muted">
+            {props.author.name}
+          </span>
         </div>
         {mode === "grid" && time}
       </div>

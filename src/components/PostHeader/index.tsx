@@ -19,7 +19,7 @@ export default function PostHeader({ meta }: PostHeaderProps) {
       <div className="my--1 flex--sb-center">
         <AuthorBadge {...meta.author} className="mr--2" />
         <time className="text--muted text--small">
-          {parseToHumanDate(meta.date)}
+          {parseToHumanDate(new Date(meta.date))}
         </time>
       </div>
       <Image

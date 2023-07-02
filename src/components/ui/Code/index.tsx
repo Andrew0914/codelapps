@@ -1,5 +1,5 @@
 "use client";
-import React, { ChangeEvent, useCallback, useState } from "react";
+import React, { ChangeEvent, useCallback, useMemo, useState } from "react";
 import { SyntaxHighlighterProps, Prism } from "react-syntax-highlighter";
 import {
   materialDark,
@@ -12,6 +12,7 @@ import {
   materialLight,
   gruvboxLight,
 } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { Combobox, ComboboxItem } from "../Combobox";
 
 interface CodeProps extends SyntaxHighlighterProps {
   className?: string;
@@ -41,22 +42,26 @@ export default function Code({ className, ...props }: CodeProps) {
     setTheme(selectTarget.value as keyof typeof themes);
   }, []);
 
+  const themesOptions: ComboboxItem[] = useMemo(
+    () =>
+      Object.keys(themes).map(
+        (themeKey) =>
+          ({
+            name: themeKey,
+            value: themeKey,
+          } as ComboboxItem)
+      ),
+    []
+  );
+
   return match ? (
     <div className="w--full">
       <div className="flex--end">
-        <select
-          onChange={changeThemeHandler}
-          className="px--1 text--highlight bg--lead shadow--xy round"
+        <Combobox
+          items={themesOptions}
           defaultValue={theme}
-        >
-          {Object.keys(themes).map((key) => {
-            return (
-              <option key={key} value={key}>
-                {key}
-              </option>
-            );
-          })}
-        </select>
+          onChange={changeThemeHandler}
+        />
       </div>
       <div className="round--big w--full">
         <Prism

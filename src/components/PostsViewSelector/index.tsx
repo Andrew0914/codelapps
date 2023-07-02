@@ -2,36 +2,70 @@
 import RadioIcon, { RadioIconGroup } from "../ui/RadioIcon";
 import { GridViewRounded, TableRows } from "@mui/icons-material";
 import styles from "./styles.module.scss";
-import { useCallback } from "react";
+import { ChangeEvent, useCallback, useMemo, useState } from "react";
+import { Combobox, ComboboxItem } from "../ui/Combobox";
 
 export interface PostsViewSelectorProps {
-  onPostsViewMode: (mode: "grid" | "rows") => void;
+  onPostsViewMode?: (mode: "grid" | "rows") => void;
+  onOrderChange?: (order: "newest" | "oldest") => void;
+  shouldShowFilters?: boolean;
   className?: string;
 }
+
+const orderOptions: ComboboxItem[] = [
+  { name: "Newest", value: "newest" },
+  { name: "Oldest", value: "oldest" },
+];
 
 export default function PostsViewSelector({
   onPostsViewMode,
   className,
+  onOrderChange,
+  shouldShowFilters,
 }: PostsViewSelectorProps) {
-  const selectHandler = useCallback(
+  const [order, setOrder] = useState<"newest" | "oldest">("newest");
+
+  const selectViewModeHandler = useCallback(
     (value: string | number) => {
-      if (value === "grid" || value === "rows") onPostsViewMode(value);
+      if (onPostsViewMode && (value === "grid" || value === "rows"))
+        onPostsViewMode(value);
     },
     [onPostsViewMode]
   );
-  // TODO: add ordering behaviour Older | Newer
+
+  const changeOderHandler = useCallback(
+    (event: ChangeEvent) => {
+      const selectTarget = event.target as HTMLSelectElement;
+      const newOrder = selectTarget.value as "newest" | "oldest";
+      setOrder(newOrder);
+      if (onOrderChange) onOrderChange(newOrder);
+    },
+    [onOrderChange]
+  );
+
   return (
-    <RadioIconGroup
-      className={`${styles.postsViewSelector}  ${className}`}
-      initialValue="rows"
-      onSelect={selectHandler}
-    >
-      <RadioIcon value="grid">
-        <GridViewRounded />
-      </RadioIcon>
-      <RadioIcon value="rows">
-        <TableRows />
-      </RadioIcon>
-    </RadioIconGroup>
+    <div className="flex">
+      {shouldShowFilters && (
+        <Combobox
+          items={orderOptions}
+          defaultValue="newest"
+          onChange={changeOderHandler}
+          className="mr--2"
+        />
+      )}
+
+      <RadioIconGroup
+        className={`${styles.postsViewSelector}  ${className}`}
+        initialValue="rows"
+        onSelect={selectViewModeHandler}
+      >
+        <RadioIcon value="grid">
+          <GridViewRounded />
+        </RadioIcon>
+        <RadioIcon value="rows">
+          <TableRows />
+        </RadioIcon>
+      </RadioIconGroup>
+    </div>
   );
 }
