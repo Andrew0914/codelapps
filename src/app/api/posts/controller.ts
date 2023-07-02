@@ -28,3 +28,17 @@ export async function getPosts({ tag }: { tag?: string }) {
     (post) => post.tags!.filter((postTag) => postTag.url === tag).length >= 1
   );
 }
+
+export async function getPostsMetaDataByFileName(fileName: string) {
+  try {
+    const { meta: postMetadata } = (await import(
+      `@/posts/${fileName}.mdx`
+    )) as {
+      meta: Post;
+    };
+    return postMetadata;
+  } catch (error) {
+    console.log(error);
+    return undefined;
+  }
+}
