@@ -12,5 +12,6 @@ export const Default: ComponentStory<typeof Tag> = (args: TagProps) => (
 
 Default.args = {
   children: "Javascript",
-  href: "/javascript",
+  url: "/javascript",
+  name: "Javascript",
 };

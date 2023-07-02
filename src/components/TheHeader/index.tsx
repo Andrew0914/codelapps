@@ -30,7 +30,6 @@ export default function TheHeader() {
             <SwitchButton
               size="small"
               iconOn={<LightModeIcon fontSize="small" />}
-              S
               iconOff={<ModeNightIcon fontSize="small" />}
               onSwitch={(isActive: boolean) => {
                 changeTheme(isActive ? "light" : "dark");
