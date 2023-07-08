@@ -1,4 +1,3 @@
-"use client";
 import Dialog from "@mui/material/Dialog";
 import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
@@ -18,35 +17,24 @@ import ThemSwitcher from "../ThemeSwitcher";
 import SocialNetworks from "../SocialNetworks";
 import Button from "../ui/Button";
 import IconButton from "../ui/IconButton";
+import { ControlledDialogProps } from "@/types";
+import useControlledDialog from "@/shared/hooks/useControlledDialog";
+import ModalTransition from "../ui/ModalTransition";
 
-interface TheMobileNavProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-const Transition = forwardRef(function Transition(
-  props: TransitionProps & {
-    children: ReactElement;
-  },
-  ref: Ref<unknown>
-) {
-  return <Slide direction="down" ref={ref} {...props} />;
-});
+interface TheMobileNavProps extends ControlledDialogProps {}
 
 export default function TheMobileNav({ onClose, isOpen }: TheMobileNavProps) {
-  const [navIsOpen, setNavIsOpen] = useState(isOpen);
-
-  useEffect(() => {
-    setNavIsOpen(isOpen);
-  }, [isOpen]);
-
-  const onCloseHandler = useCallback(() => {
-    setNavIsOpen(false);
-    onClose();
-  }, [onClose]);
+  const { dialogIsOpen, onCloseHandler } = useControlledDialog({
+    onClose,
+    isOpen,
+  });
 
   return (
-    <Dialog fullScreen open={navIsOpen} TransitionComponent={Transition}>
+    <Dialog
+      fullScreen
+      open={dialogIsOpen}
+      TransitionComponent={ModalTransition}
+    >
       <div className={`${styles.navMobile} bg--lead`}>
         <header
           className={`bg--content flex--sb-center p--2 ${styles.navMobile_header}`}

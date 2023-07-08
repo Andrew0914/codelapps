@@ -9,10 +9,12 @@ import DownloadRounded from "@mui/icons-material/DownloadRounded";
 import TheMobileNav from "@/components/TheMobileNav";
 import { useState } from "react";
 import ThemSwitcher from "../ThemeSwitcher";
+import SearchBox from "../SearchBox";
 
 // TODO: Take out texts from here to  dicitonary
 export default function TheHeader() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [searchBoxIsOpen, setSearchBoxIsOpen] = useState(false);
 
   const toggleMobileNav = () => {
     setMobileNavOpen(!mobileNavOpen);
@@ -22,12 +24,27 @@ export default function TheHeader() {
     setMobileNavOpen(false);
   };
 
+  const onSearchBoxCloseHandler = () => {
+    setSearchBoxIsOpen(false);
+  };
+
+  const onSearchButtonClickHandler = () => {
+    setSearchBoxIsOpen(!searchBoxIsOpen);
+  };
+
   return (
     <header className={`shadow--y ${styles.theHeader}`}>
       <div className={`flex--sb-center ${styles.theHeader_content} content`}>
         <h1 className="text--big-bold text--content">🍕 Codelapps</h1>
         <div className={`flex--sb-center ${styles.theHeader_actions}`}>
-          <SearchButton className={styles.theHeader_searchbar} />
+          <SearchButton
+            className={styles.theHeader_searchbar}
+            onSearchButtonClick={onSearchButtonClickHandler}
+          />
+          <SearchBox
+            isOpen={searchBoxIsOpen}
+            onClose={onSearchBoxCloseHandler}
+          />
           <TheNav className={styles.theHeader_nav} />
           <TheMobileNav isOpen={mobileNavOpen} onClose={onMobileCloseHandler} />
           <IconButton

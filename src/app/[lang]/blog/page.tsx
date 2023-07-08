@@ -4,7 +4,7 @@ import PostsList from "@/components/PostsList";
 import SectionTitle from "@/components/ui/SectionTitle";
 import TagsBox from "@/components/ui/TagsBox";
 import { RouteBlogParams } from "@/models/RouteParams";
-import LocaleContextProvider from "@/shared/LocaleContextProvider";
+import LocaleContextProvider from "@/shared/contexts/LocaleContextProvider";
 
 export default async function BlogPage({
   searchParams,
