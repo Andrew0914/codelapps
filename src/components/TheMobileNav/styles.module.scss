@@ -1,0 +1,12 @@
+.navMobile {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 64px 1fr;
+}
+
+.navMobile_header > div {
+  display: flex;
+  gap: 16px;
+  box-sizing: border-box;
+}

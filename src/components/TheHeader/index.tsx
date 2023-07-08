@@ -2,18 +2,24 @@
 import TheNav from "../TheNav";
 import SocialNetworks from "../SocialNetworks";
 import SearchButton from "../ui/SearchButton";
-import SwitchButton from "../ui/SwitchButton";
 import styles from "./styles.module.scss";
 import IconButton from "../ui/IconButton";
-import LightModeIcon from "@mui/icons-material/LightMode";
-import ModeNightIcon from "@mui/icons-material/ModeNight";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import DownloadRounded from "@mui/icons-material/DownloadRounded";
+import TheMobileNav from "@/components/TheMobileNav";
+import { useState } from "react";
+import ThemSwitcher from "../ThemeSwitcher";
 
 // TODO: Take out texts from here to  dicitonary
 export default function TheHeader() {
-  const changeTheme = (classTheme: "light" | "dark") => {
-    document.querySelector("body")!.className = classTheme;
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+
+  const toggleMobileNav = () => {
+    setMobileNavOpen(!mobileNavOpen);
+  };
+
+  const onMobileCloseHandler = () => {
+    setMobileNavOpen(false);
   };
 
   return (
@@ -23,19 +29,15 @@ export default function TheHeader() {
         <div className={`flex--sb-center ${styles.theHeader_actions}`}>
           <SearchButton className={styles.theHeader_searchbar} />
           <TheNav className={styles.theHeader_nav} />
-          <IconButton className={styles.theHeader_hamburguer}>
+          <TheMobileNav isOpen={mobileNavOpen} onClose={onMobileCloseHandler} />
+          <IconButton
+            className={styles.theHeader_hamburguer}
+            onClick={toggleMobileNav}
+          >
             <MenuRoundedIcon />
           </IconButton>
           <span className={styles.theHeader_themeSwitcher}>
-            <SwitchButton
-              size="small"
-              iconOn={<LightModeIcon fontSize="small" />}
-              iconOff={<ModeNightIcon fontSize="small" />}
-              onSwitch={(isActive: boolean) => {
-                changeTheme(isActive ? "light" : "dark");
-                return undefined;
-              }}
-            />
+            <ThemSwitcher />
           </span>
           <SocialNetworks mode="short" className={styles.theHeader_shortcuts} />
           <IconButton>
