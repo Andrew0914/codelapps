@@ -1,6 +1,8 @@
 import styles from "./styles.module.scss";
 import Link from "next/link";
 
+import { useState } from "react";
+
 interface TheNavProps {
   className?: string;
   layout?: "column" | "row";

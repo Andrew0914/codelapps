@@ -4,6 +4,7 @@ import {
   ChangeEvent,
   ChangeEventHandler,
   ReactNode,
+  useEffect,
   useMemo,
   useState,
 } from "react";
@@ -18,10 +19,15 @@ interface SwitchButtonProps {
   iconOn?: ReactNode;
   iconOff?: ReactNode;
   size?: Size;
+  isActive?: boolean;
 }
 
 export default function SwitchButton(props: SwitchButtonProps) {
-  const [isActive, setIsActive] = useState<boolean>(false);
+  const [isActive, setIsActive] = useState<boolean>(props.isActive ?? false);
+
+  useEffect(() => {
+    setIsActive(props.isActive ?? false);
+  }, [props.isActive]);
 
   const getIcon = () => {
     if (props.iconOff && props.iconOn) {
@@ -53,6 +59,7 @@ export default function SwitchButton(props: SwitchButtonProps) {
       <input
         className={styles.switchButton_input}
         type="checkbox"
+        checked={isActive ?? false}
         onChange={onChangeHandler}
       />
       <span className={styles.switchButton_circle}>{getIcon()}</span>
