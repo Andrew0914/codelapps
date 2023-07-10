@@ -1,4 +1,48 @@
-.searchbox {
+@import "@/styles/_spacing.scss";
+@import "@/styles/_colors.scss";
+@import "@/styles/_responsive.scss";
+
+.searchBox {
   width: 100%;
   height: 100%;
+}
+
+.searchBox_header {
+  height: 64px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 0 calc($unit * 2) 0 0;
+}
+
+.searchBox_input {
+  height: 64px;
+  outline: none;
+  border: none;
+}
+
+.searchBox_actions {
+  gap: calc($unit * 2);
+  & span {
+    gap: calc($unit * 0.5);
+  }
+}
+
+.searchBox_results {
+  padding-inline: 0;
+  list-style: none;
+}
+
+.searchBox_resultItem:hover {
+  background-color: var($--secondary);
+  cursor: pointer;
+}
+
+.searchBox_content {
+  display: grid;
+  gap: calc($unit * 4);
+  @include on-desktop {
+    gap: $unit;
+    grid-template-columns: 2fr 1fr;
+  }
 }

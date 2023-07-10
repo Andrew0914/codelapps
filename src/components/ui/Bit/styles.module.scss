@@ -1,0 +1,11 @@
+@import "@/styles/_colors.scss";
+
+@each $key, $value in $ui-variants {
+  .#{$key} {
+    border: 1px solid var($value);
+  }
+}
+
+.bit {
+  padding: 0px 4px;
+}

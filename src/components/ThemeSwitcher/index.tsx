@@ -7,6 +7,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 
 export default function ThemSwitcher() {
   const [isLightMode, seIsLightMode] = useState(false);
+  // FIXME: use breakpoint as variables from scss
   const onDesktop = useMediaQuery("(min-width:992px)", { noSsr: true });
 
   useEffect(() => {

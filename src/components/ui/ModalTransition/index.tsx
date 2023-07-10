@@ -8,6 +8,7 @@ const ModalTransition = forwardRef(function Transition(
   },
   ref: Ref<unknown>
 ) {
+  // FIXME: use breakpoint as variables from scss or even move this functionallity to utils.
   const isMobile = useMediaQuery("(max-width:992px)", { noSsr: true });
 
   return isMobile ? (

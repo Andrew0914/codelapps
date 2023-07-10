@@ -53,3 +53,12 @@ $theme-map-dark: (
   $--black: #102011,
   $--bg-blur: rgba(255, 255, 255, 0.1),
 );
+
+$ui-variants: (
+  muted: --muted,
+  primary: --primary,
+  secondary: --secondary,
+  highlight: --highlight,
+  accent: --accent,
+  danger: --danger,
+);
