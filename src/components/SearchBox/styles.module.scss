@@ -42,7 +42,6 @@
   display: grid;
   gap: calc($unit * 4);
   @include on-desktop {
-    gap: $unit;
-    grid-template-columns: 2fr 1fr;
+    gap: calc($unit * 2);
   }
 }
