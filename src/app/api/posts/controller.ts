@@ -38,7 +38,6 @@ export async function getPostsMetaDataByFileName(fileName: string) {
     };
     return postMetadata;
   } catch (error) {
-    console.log(error);
     return undefined;
   }
 }

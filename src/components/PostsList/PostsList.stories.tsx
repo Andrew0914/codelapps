@@ -13,7 +13,7 @@ export const Default: ComponentStory<typeof PostsList> = (
 
 const posts: PostItemProps[] = [
   {
-    date: new Date("2023-05-05"),
+    date: "2023-05-05",
     title: "Pruebas Unitarias",
     excerpt: "Test de pruebas unitarias",
     author: {
@@ -26,7 +26,7 @@ const posts: PostItemProps[] = [
     slug: "http://codelapps.com",
   },
   {
-    date: new Date("2023-05-05"),
+    date: "2023-05-05",
     title: "Pruebas Unitarias",
     excerpt: "Test de pruebas unitarias",
     author: {
@@ -39,7 +39,7 @@ const posts: PostItemProps[] = [
     slug: "http://codelapps.com",
   },
   {
-    date: new Date("2023-05-05"),
+    date: "2023-05-05",
     title: "Pruebas Unitarias muchas pruebas para ver que pasa",
     excerpt:
       "Test de pruebas unitarias Test de pruebas unitariasTest de pruebas unitarias",

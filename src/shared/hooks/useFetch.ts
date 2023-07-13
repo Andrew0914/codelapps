@@ -30,7 +30,7 @@ export default function useFetch<T>(
     };
     makeRequest();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [url, method, body]);
 
   return [loading, error, data];
 }
