@@ -1,20 +1,15 @@
-import { ControlledDialogProps } from "@/types";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
-export default function useControlledDialog({
-  onClose,
-  isOpen,
-}: ControlledDialogProps) {
-  const [dialogIsOpen, setDialogIsOpen] = useState(isOpen);
+export default function useControlledDialog() {
+  const [dialogIsOpen, setDialogIsOpen] = useState(false);
 
-  useEffect(() => {
-    setDialogIsOpen(isOpen);
-  }, [isOpen]);
-
-  const onCloseHandler = useCallback(() => {
+  const closeDialog = useCallback(() => {
     setDialogIsOpen(false);
-    onClose();
-  }, [onClose]);
+  }, [setDialogIsOpen]);
 
-  return { dialogIsOpen, onCloseHandler };
+  const openDialog = useCallback(() => {
+    setDialogIsOpen(true);
+  }, [setDialogIsOpen]);
+
+  return { dialogIsOpen, closeDialog, openDialog };
 }

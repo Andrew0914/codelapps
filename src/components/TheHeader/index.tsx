@@ -10,27 +10,21 @@ import TheMobileNav from "@/components/TheMobileNav";
 import { useState } from "react";
 import ThemSwitcher from "../ThemeSwitcher";
 import SearchBox from "../SearchBox";
+import useControlledDialog from "@/shared/hooks/useControlledDialog";
 
 // TODO: Take out texts from here to  dicitonary
 export default function TheHeader() {
-  const [mobileNavOpen, setMobileNavOpen] = useState(false);
-  const [searchBoxIsOpen, setSearchBoxIsOpen] = useState(false);
+  const {
+    dialogIsOpen: searchBoxIsOpen,
+    closeDialog: closeSearchBox,
+    openDialog: openSearchBox,
+  } = useControlledDialog();
 
-  const toggleMobileNav = () => {
-    setMobileNavOpen(!mobileNavOpen);
-  };
-
-  const onMobileCloseHandler = () => {
-    setMobileNavOpen(false);
-  };
-
-  const onSearchBoxCloseHandler = () => {
-    setSearchBoxIsOpen(false);
-  };
-
-  const onSearchButtonClickHandler = () => {
-    setSearchBoxIsOpen(!searchBoxIsOpen);
-  };
+  const {
+    dialogIsOpen: mobileNavIsOpen,
+    closeDialog: closeMobileNav,
+    openDialog: openMobileNav,
+  } = useControlledDialog();
 
   return (
     <header className={`shadow--y ${styles.theHeader}`}>
@@ -39,17 +33,14 @@ export default function TheHeader() {
         <div className={`flex--sb-center ${styles.theHeader_actions}`}>
           <SearchButton
             className={styles.theHeader_searchbar}
-            onSearchButtonClick={onSearchButtonClickHandler}
+            onSearchButtonClick={openSearchBox}
           />
-          <SearchBox
-            isOpen={searchBoxIsOpen}
-            onClose={onSearchBoxCloseHandler}
-          />
+          <SearchBox isOpen={searchBoxIsOpen} onClose={closeSearchBox} />
           <TheNav className={styles.theHeader_nav} />
-          <TheMobileNav isOpen={mobileNavOpen} onClose={onMobileCloseHandler} />
+          <TheMobileNav isOpen={mobileNavIsOpen} onClose={closeMobileNav} />
           <IconButton
             className={styles.theHeader_hamburguer}
-            onClick={toggleMobileNav}
+            onClick={openMobileNav}
           >
             <MenuRoundedIcon />
           </IconButton>

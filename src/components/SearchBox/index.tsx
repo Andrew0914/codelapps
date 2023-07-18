@@ -1,8 +1,6 @@
-"use client";
 import Dialog from "@mui/material/Dialog";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { ControlledDialogProps } from "@/types";
-import useControlledDialog from "@/shared/hooks/useControlledDialog";
 import TagsBox from "@/components/ui/TagsBox";
 import styles from "./styles.module.scss";
 import ModalTransition from "../ui/ModalTransition";
@@ -18,9 +16,16 @@ import {
 } from "@mui/material";
 import { Tag } from "@/models/Post";
 import useFetch from "@/shared/hooks/useFetch";
-import { FormEvent, PropsWithChildren, useState } from "react";
+import {
+  FormEvent,
+  KeyboardEvent,
+  PropsWithChildren,
+  useCallback,
+  useState,
+} from "react";
 // @ts-ignore
 import debounce from "lodash.debounce";
+import { useRouter } from "next/navigation";
 
 export interface SearchBoxProps extends ControlledDialogProps {
   isOpen: boolean;
@@ -65,11 +70,15 @@ const SearchBoxResults = ({
   loading,
   error,
   term,
+  selectedIndex,
+  onClick,
 }: {
   results?: SearchResultItemProps[];
   loading: boolean;
   error?: Error;
   term: string;
+  selectedIndex: number;
+  onClick: () => void;
 }) => {
   const CenterContent = ({ children }: PropsWithChildren) => (
     <div className="text--center text--content flex--center-column">
@@ -111,9 +120,14 @@ const SearchBoxResults = ({
     );
 
   return (
-    <ul className={`${styles.searchBox_results} w--full my--3`}>
-      {results.map((item) => (
-        <SearchResultItem key={item.title} {...item} />
+    <ul className={`${styles.searchBox_results} w--full my--3`} role="listbox">
+      {results.map((item, index) => (
+        <SearchResultItem
+          key={item.title}
+          {...item}
+          isSelected={index === selectedIndex}
+          onClick={onClick}
+        />
       ))}
     </ul>
   );
@@ -127,6 +141,7 @@ const SearchBoxSearcher = ({
   <>
     <input
       type="text"
+      role="searchbox"
       placeholder="Search"
       className={`pl--3 ${styles.searchBox_input} bg--lead text--content text--md`}
       onInput={onSearch}
@@ -135,11 +150,15 @@ const SearchBoxSearcher = ({
   </>
 );
 
-export default function SearchBox(props: SearchBoxProps) {
+export default function SearchBox({ isOpen, onClose }: SearchBoxProps) {
   // FIXME: use breakpoint as variables from scss
+  // TODO: create unit tests
   const [term, setTerm] = useState("");
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
   const fullScreen = useMediaQuery("(max-width:992px)", { noSsr: true });
-  const { dialogIsOpen, onCloseHandler } = useControlledDialog(props);
+  const router = useRouter();
+
   const [tagsLoading, _tagsError, tags] = useFetch<Tag[]>("/api/tags");
   const [searchLoading, searchError, searchResults] = useFetch<
     SearchResultItemProps[]
@@ -150,17 +169,50 @@ export default function SearchBox(props: SearchBoxProps) {
     setTerm(encodeURIComponent(input.value));
   }, 300);
 
+  const onResultClickHandler = useCallback(() => {
+    onClose();
+  }, [onClose]);
+
+  const onKeyDownHandler = useCallback(
+    (e: KeyboardEvent<HTMLDivElement>) => {
+      if (!searchResults) return;
+
+      const lastItemIndex = searchResults?.length - 1;
+
+      switch (e.key.toLowerCase()) {
+        case "arrowup":
+          setSelectedIndex(selectedIndex > 0 ? selectedIndex - 1 : 0);
+          break;
+        case "arrowdown":
+          setSelectedIndex(
+            selectedIndex < lastItemIndex ? selectedIndex + 1 : lastItemIndex
+          );
+          break;
+        case "enter":
+          e.preventDefault();
+          router.replace(searchResults[selectedIndex].url);
+          onClose();
+          break;
+        case "escape":
+          onClose();
+          break;
+      }
+    },
+    [router, searchResults, selectedIndex, onClose]
+  );
+
   // TODO: create story fot this
   return (
     <Dialog
       fullScreen={fullScreen}
-      open={dialogIsOpen}
-      onClose={onCloseHandler}
+      open={isOpen}
+      onClose={onClose}
       TransitionComponent={ModalTransition}
       aria-labelledby="Search box"
       maxWidth="sm"
       fullWidth
       scroll="paper"
+      onKeyDownCapture={onKeyDownHandler}
     >
       <DialogTitle className={`bg--lead ${styles.searchBox_header} pr--3`}>
         <SearchBoxSearcher onSearch={searcHandler} />
@@ -173,6 +225,8 @@ export default function SearchBox(props: SearchBoxProps) {
           loading={searchLoading}
           error={searchError}
           term={term}
+          selectedIndex={selectedIndex}
+          onClick={onResultClickHandler}
         />
         <SearchBoxTags loading={tagsLoading} tags={tags ?? []} />
       </DialogContent>
