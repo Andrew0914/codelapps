@@ -14,7 +14,7 @@ Default.args = {
   title: "This is a long post title to be render in the post item",
   excerpt:
     "The width property represents the rendered width in pixels, so it will affect how large the image appears.",
-  date: new Date("2023-05-05"),
+  date: "2023-05-05",
   author: {
     name: "Andrew",
     avatarUrl:

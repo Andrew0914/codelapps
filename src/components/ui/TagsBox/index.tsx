@@ -1,6 +1,6 @@
+"use client";
 import { Tag as TagProps } from "@/models/Post";
 import classNames from "classnames";
-import { Locale } from "i18n-config";
 import Tag from "../Tag";
 import styles from "./styles.module.scss";
 export interface TagsBoxProps {

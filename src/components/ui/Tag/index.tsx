@@ -3,7 +3,7 @@ import { Tag as TagModel } from "@/models/Post";
 import Link from "next/link";
 import { PropsWithChildren, useContext } from "react";
 import styles from "./styles.module.scss";
-import LocaleContext from "@/shared/LocaleContext";
+import LocaleContext from "@/shared/contexts/LocaleContext";
 export interface TagProps extends PropsWithChildren, TagModel {
   children: string;
 }

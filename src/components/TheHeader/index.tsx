@@ -9,30 +9,38 @@ import DownloadRounded from "@mui/icons-material/DownloadRounded";
 import TheMobileNav from "@/components/TheMobileNav";
 import { useState } from "react";
 import ThemSwitcher from "../ThemeSwitcher";
+import SearchBox from "../SearchBox";
+import useControlledDialog from "@/shared/hooks/useControlledDialog";
 
 // TODO: Take out texts from here to  dicitonary
 export default function TheHeader() {
-  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const {
+    dialogIsOpen: searchBoxIsOpen,
+    closeDialog: closeSearchBox,
+    openDialog: openSearchBox,
+  } = useControlledDialog();
 
-  const toggleMobileNav = () => {
-    setMobileNavOpen(!mobileNavOpen);
-  };
-
-  const onMobileCloseHandler = () => {
-    setMobileNavOpen(false);
-  };
+  const {
+    dialogIsOpen: mobileNavIsOpen,
+    closeDialog: closeMobileNav,
+    openDialog: openMobileNav,
+  } = useControlledDialog();
 
   return (
     <header className={`shadow--y ${styles.theHeader}`}>
       <div className={`flex--sb-center ${styles.theHeader_content} content`}>
         <h1 className="text--big-bold text--content">🍕 Codelapps</h1>
         <div className={`flex--sb-center ${styles.theHeader_actions}`}>
-          <SearchButton className={styles.theHeader_searchbar} />
+          <SearchButton
+            className={styles.theHeader_searchbar}
+            onSearchButtonClick={openSearchBox}
+          />
+          <SearchBox isOpen={searchBoxIsOpen} onClose={closeSearchBox} />
           <TheNav className={styles.theHeader_nav} />
-          <TheMobileNav isOpen={mobileNavOpen} onClose={onMobileCloseHandler} />
+          <TheMobileNav isOpen={mobileNavIsOpen} onClose={closeMobileNav} />
           <IconButton
             className={styles.theHeader_hamburguer}
-            onClick={toggleMobileNav}
+            onClick={openMobileNav}
           >
             <MenuRoundedIcon />
           </IconButton>

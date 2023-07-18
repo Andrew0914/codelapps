@@ -1,0 +1,75 @@
+@import "@/styles/_spacing.scss";
+@import "@/styles/_colors.scss";
+@import "@/styles/_responsive.scss";
+
+.searchBox {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  gap: calc($unit * 4);
+  @include on-desktop {
+    gap: calc($unit * 2);
+  }
+}
+
+.searchBox_header {
+  height: 64px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 0 calc($unit * 2) 0 0 !important;
+}
+
+.searchBox_input {
+  height: 64px;
+  outline: none;
+  border: none;
+}
+
+.searchBox_actions {
+  gap: calc($unit * 2);
+  & span {
+    gap: calc($unit * 0.5);
+  }
+  display: none;
+  @include on-desktop {
+    display: flex;
+  }
+}
+
+.searchBox_results {
+  padding-inline: 0;
+  list-style: none;
+}
+
+.searchBox_resultItem {
+  transition: all 0.3s ease-in-out;
+}
+
+.searchBox_resultItem:hover,
+.searchBox_resultItem_selected {
+  background-color: var($--secondary);
+  cursor: pointer;
+  color: var($--white);
+  & > a > * {
+    color: var($--white) !important;
+  }
+}
+
+.searchBox_resultItem a {
+  text-decoration: none;
+}
+
+.searchBox_close_esc {
+  display: none;
+  @include on-desktop {
+    display: block;
+  }
+}
+
+.searchBox_close_x {
+  display: block;
+  @include on-desktop {
+    display: none;
+  }
+}

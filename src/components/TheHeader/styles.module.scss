@@ -69,7 +69,6 @@
 
 .theHeader_hamburguer {
   order: 2;
-  height: 64px;
   @include on-desktop() {
     display: none;
   }
