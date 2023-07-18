@@ -26,6 +26,8 @@ import {
 // @ts-ignore
 import debounce from "lodash.debounce";
 import { useRouter } from "next/navigation";
+import IconButton from "../ui/IconButton";
+import CloseIcon from "@mui/icons-material/CloseRounded";
 
 export interface SearchBoxProps extends ControlledDialogProps {
   isOpen: boolean;
@@ -86,6 +88,7 @@ const SearchBoxResults = ({
     </div>
   );
 
+  // TODO: create image for no results and implement it
   if (!term)
     return (
       <CenterContent>
@@ -135,20 +138,33 @@ const SearchBoxResults = ({
 
 const SearchBoxSearcher = ({
   onSearch,
+  onClose,
 }: {
   onSearch: (e: FormEvent) => void;
-}) => (
-  <>
-    <input
-      type="text"
-      role="searchbox"
-      placeholder="Search"
-      className={`pl--3 ${styles.searchBox_input} bg--lead text--content text--md`}
-      onInput={onSearch}
-    />
-    <Bit variant="highlight"> Esc </Bit>
-  </>
-);
+  onClose: () => void;
+}) => {
+  const isMobile = useMediaQuery("(max-width:992px)", { noSsr: true });
+
+  return (
+    <>
+      <input
+        type="text"
+        role="searchbox"
+        placeholder="Search"
+        className={`pl--3 ${styles.searchBox_input} bg--lead text--content text--md`}
+        onInput={onSearch}
+      />
+
+      {isMobile ? (
+        <IconButton onClick={onClose}>
+          <CloseIcon className="text--content" />
+        </IconButton>
+      ) : (
+        <Bit variant="highlight"> Esc </Bit>
+      )}
+    </>
+  );
+};
 
 export default function SearchBox({ isOpen, onClose }: SearchBoxProps) {
   // FIXME: use breakpoint as variables from scss
@@ -156,7 +172,7 @@ export default function SearchBox({ isOpen, onClose }: SearchBoxProps) {
   const [term, setTerm] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const fullScreen = useMediaQuery("(max-width:992px)", { noSsr: true });
+  const isMobile = useMediaQuery("(max-width:992px)", { noSsr: true });
   const router = useRouter();
 
   const [tagsLoading, _tagsError, tags] = useFetch<Tag[]>("/api/tags");
@@ -175,7 +191,7 @@ export default function SearchBox({ isOpen, onClose }: SearchBoxProps) {
 
   const onKeyDownHandler = useCallback(
     (e: KeyboardEvent<HTMLDivElement>) => {
-      if (!searchResults) return;
+      if (!searchResults || isMobile) return;
 
       const lastItemIndex = searchResults?.length - 1;
 
@@ -198,13 +214,13 @@ export default function SearchBox({ isOpen, onClose }: SearchBoxProps) {
           break;
       }
     },
-    [router, searchResults, selectedIndex, onClose]
+    [router, searchResults, selectedIndex, onClose, isMobile]
   );
 
   // TODO: create story fot this
   return (
     <Dialog
-      fullScreen={fullScreen}
+      fullScreen={isMobile}
       open={isOpen}
       onClose={onClose}
       TransitionComponent={ModalTransition}
@@ -215,7 +231,7 @@ export default function SearchBox({ isOpen, onClose }: SearchBoxProps) {
       onKeyDownCapture={onKeyDownHandler}
     >
       <DialogTitle className={`bg--lead ${styles.searchBox_header} pr--3`}>
-        <SearchBoxSearcher onSearch={searcHandler} />
+        <SearchBoxSearcher onSearch={searcHandler} onClose={onClose} />
       </DialogTitle>
       <DialogContent
         className={`bg--content py--2 ${styles.searchBox_content}`}

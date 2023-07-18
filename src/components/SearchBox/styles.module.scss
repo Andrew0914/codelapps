@@ -31,6 +31,10 @@
   & span {
     gap: calc($unit * 0.5);
   }
+  display: none;
+  @include on-desktop {
+    display: flex;
+  }
 }
 
 .searchBox_results {
@@ -54,4 +58,18 @@
 
 .searchBox_resultItem a {
   text-decoration: none;
+}
+
+.searchBox_close_esc {
+  display: none;
+  @include on-desktop {
+    display: block;
+  }
+}
+
+.searchBox_close_x {
+  display: block;
+  @include on-desktop {
+    display: none;
+  }
 }

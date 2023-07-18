@@ -7,6 +7,7 @@ export default function NotFound() {
       <h1 className="text--giant">404</h1>
       <h3 className="my--2">Page not Found</h3>
       <h1 className="movingx">🛸</h1>
+      {/* TODO: create & implement 404 image */}
       <Image
         src="/images/common/ufo_404.png"
         width={307}
