@@ -21,6 +21,7 @@ import {
   KeyboardEvent,
   PropsWithChildren,
   useCallback,
+  useContext,
   useState,
 } from "react";
 // @ts-ignore
@@ -28,22 +29,26 @@ import debounce from "lodash.debounce";
 import { useRouter } from "next/navigation";
 import IconButton from "../ui/IconButton";
 import CloseIcon from "@mui/icons-material/CloseRounded";
+import LocaleContext, { LocaleMessages } from "@/shared/contexts/LocaleContext";
 
 export interface SearchBoxProps extends ControlledDialogProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const SearchBoxActions = () => (
+const SearchBoxActions = ({ dictionary }: { dictionary: LocaleMessages }) => (
   <>
     <span className="flex--sb-center text--content text--small">
-      <EnterKeyIcon fontSize="small" /> to select
+      <EnterKeyIcon fontSize="small" />
+      {dictionary.searchBox.actions.toSelect}
     </span>
-    <span className="flex--sb-center">
-      <ArrowKeysIcon fontSize="small" /> to navigate
+    <span className="flex--sb-center text--content text--small">
+      <ArrowKeysIcon fontSize="small" />
+      {dictionary.searchBox.actions.toNavigate}
     </span>
-    <span className="flex--sb-center">
-      <Bit variant="highlight"> Esc </Bit> to close
+    <span className="flex--sb-center text--content text--small">
+      <Bit variant="highlight"> Esc </Bit>
+      {dictionary.searchBox.actions.toClose}
     </span>
   </>
 );
@@ -51,13 +56,15 @@ const SearchBoxActions = () => (
 const SearchBoxTags = ({
   tags,
   loading,
+  dictionary,
 }: {
   tags: Tag[];
   loading: boolean;
+  dictionary: LocaleMessages;
 }) => (
   <div className="text--center text--center flex--center-column">
     <h4 className="text--big-bold text--content mb--2">
-      More interesting topics
+      {dictionary.tags.description}
     </h4>
     {loading ? (
       <Skeleton variant="rounded" animation="wave" width={200} height={32} />
@@ -74,6 +81,7 @@ const SearchBoxResults = ({
   term,
   selectedIndex,
   onClick,
+  dictionary,
 }: {
   results?: SearchResultItemProps[];
   loading: boolean;
@@ -81,6 +89,7 @@ const SearchBoxResults = ({
   term: string;
   selectedIndex: number;
   onClick: () => void;
+  dictionary: LocaleMessages;
 }) => {
   const CenterContent = ({ children }: PropsWithChildren) => (
     <div className="text--center text--content flex--center-column">
@@ -92,21 +101,19 @@ const SearchBoxResults = ({
   if (!term)
     return (
       <CenterContent>
-        <p className="text--big py--4">Looking for something amazing 🪐</p>
+        <p className="text--big py--4">{dictionary.searchBox.description}</p>
       </CenterContent>
     );
 
   if (error)
     <CenterContent>
-      <p className="text--big py--4">
-        Something is wrong, please try agai or reload 👾✖️
-      </p>
+      <p className="text--big py--4">{dictionary.error}</p>
     </CenterContent>;
 
   if (!results || results?.length <= 0)
     return (
       <CenterContent>
-        <p className="text--big py--4">No results found 🛸</p>
+        <p className="text--big py--4">{dictionary.searchBox.noResults}</p>
       </CenterContent>
     );
 
@@ -139,9 +146,11 @@ const SearchBoxResults = ({
 const SearchBoxSearcher = ({
   onSearch,
   onClose,
+  dictionary,
 }: {
   onSearch: (e: FormEvent) => void;
   onClose: () => void;
+  dictionary: LocaleMessages;
 }) => {
   const isMobile = useMediaQuery("(max-width:992px)", { noSsr: true });
 
@@ -150,7 +159,7 @@ const SearchBoxSearcher = ({
       <input
         type="text"
         role="searchbox"
-        placeholder="Search"
+        placeholder={dictionary.searchBox.search}
         className={`pl--3 ${styles.searchBox_input} bg--lead text--content text--md`}
         onInput={onSearch}
       />
@@ -174,6 +183,7 @@ export default function SearchBox({ isOpen, onClose }: SearchBoxProps) {
 
   const isMobile = useMediaQuery("(max-width:992px)", { noSsr: true });
   const router = useRouter();
+  const { dictionary } = useContext(LocaleContext);
 
   const [tagsLoading, _tagsError, tags] = useFetch<Tag[]>("/api/tags");
   const [searchLoading, searchError, searchResults] = useFetch<
@@ -231,7 +241,11 @@ export default function SearchBox({ isOpen, onClose }: SearchBoxProps) {
       onKeyDownCapture={onKeyDownHandler}
     >
       <DialogTitle className={`bg--lead ${styles.searchBox_header} pr--3`}>
-        <SearchBoxSearcher onSearch={searcHandler} onClose={onClose} />
+        <SearchBoxSearcher
+          onSearch={searcHandler}
+          onClose={onClose}
+          dictionary={dictionary}
+        />
       </DialogTitle>
       <DialogContent
         className={`bg--content py--2 ${styles.searchBox_content}`}
@@ -243,13 +257,18 @@ export default function SearchBox({ isOpen, onClose }: SearchBoxProps) {
           term={term}
           selectedIndex={selectedIndex}
           onClick={onResultClickHandler}
+          dictionary={dictionary}
         />
-        <SearchBoxTags loading={tagsLoading} tags={tags ?? []} />
+        <SearchBoxTags
+          loading={tagsLoading}
+          tags={tags ?? []}
+          dictionary={dictionary}
+        />
       </DialogContent>
       <DialogActions
         className={`bg--lead px--3 py--1 flex text--content ${styles.searchBox_actions}`}
       >
-        <SearchBoxActions />
+        <SearchBoxActions dictionary={dictionary} />
       </DialogActions>
     </Dialog>
   );

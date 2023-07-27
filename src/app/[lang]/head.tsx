@@ -1,12 +1,17 @@
-export default function Head() {
+import { getDictionary } from "get-dictionary";
+
+export default async function Head({
+  params: { lang },
+}: {
+  params: { lang: "en" | "es" };
+}) {
+  const dictionary = await getDictionary(lang);
+
   return (
     <>
-      <title>🍕 Codelapps by @Andrew_GMx</title>
+      <title>🍕 Codelapps</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta
-        name="description"
-        content="This is my personal site to share my experieces as a Developer and a geek in neneral: videogames, code, livestyle"
-      />
+      <meta name="description" content={dictionary.siteDescription} />
       <link rel="icon" href="/favicon.ico" />
     </>
   );

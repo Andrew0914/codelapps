@@ -1,4 +1,6 @@
+import LocaleContext from "@/shared/contexts/LocaleContext";
 import SearchIcon from "@mui/icons-material/Search";
+import { useContext } from "react";
 import styles from "./styles.module.scss";
 
 interface SearchButtonProps {
@@ -7,6 +9,8 @@ interface SearchButtonProps {
 }
 
 export default function SearchButton(props: SearchButtonProps) {
+  const { dictionary } = useContext(LocaleContext);
+
   return (
     <button
       className={`${props.className} ${styles.searchButton} flex--sb-center round`}
@@ -14,12 +18,12 @@ export default function SearchButton(props: SearchButtonProps) {
     >
       <SearchIcon className="text--content" />
       <span className={`text--md text--content ${styles.searchButton_desktop}`}>
-        Search
+        {dictionary.searchBox.search}
       </span>
       <div
         className={`text--xsmall text--content round--sm ${styles.searchButton_bit} ${styles.searchButton_desktop}`}
       >
-        Ctrl K
+        {dictionary.searchBox.control}
       </div>
     </button>
   );

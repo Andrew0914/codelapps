@@ -3,10 +3,11 @@ import SectionTitle from "../ui/SectionTitle";
 import PostsViewSelector from "../PostsViewSelector";
 import PostItem, { PostItemProps } from "../ui/PostItem";
 import styles from "./styles.module.scss";
-import { useCallback, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import classNames from "classnames";
 import { Post } from "@/models/Post";
 import { DateOrder, sortByDate } from "@/utils/Date";
+import LocaleContext from "@/shared/contexts/LocaleContext";
 
 export interface PostsListProps {
   posts: PostItemProps[];
@@ -22,6 +23,7 @@ export default function PostsList({
   const [mode, setMode] = useState<modes>("rows");
   const [order, setOrder] = useState<DateOrder>("newest");
   const postsListClasses = classNames("pt--3", styles.postsList, styles[mode]);
+  const { dictionary } = useContext(LocaleContext);
 
   const onViewModeChangeHandler = useCallback((mode: modes) => {
     setMode(mode);
@@ -48,7 +50,7 @@ export default function PostsList({
   return (
     <>
       <div className="flex--sb-center w--full">
-        <SectionTitle>Featured Posts</SectionTitle>
+        <SectionTitle>{dictionary.post.sectionTitle}</SectionTitle>
         <PostsViewSelector
           className={styles.viewSelector}
           onPostsViewMode={onViewModeChangeHandler}
