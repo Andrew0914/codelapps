@@ -7,12 +7,10 @@ import IconButton from "../ui/IconButton";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import DownloadRounded from "@mui/icons-material/DownloadRounded";
 import TheMobileNav from "@/components/TheMobileNav";
-import { useState } from "react";
 import ThemSwitcher from "../ThemeSwitcher";
 import SearchBox from "../SearchBox";
 import useControlledDialog from "@/shared/hooks/useControlledDialog";
 
-// TODO: Take out texts from here to  dicitonary
 export default function TheHeader() {
   const {
     dialogIsOpen: searchBoxIsOpen,
@@ -29,6 +27,7 @@ export default function TheHeader() {
   return (
     <header className={`shadow--y ${styles.theHeader}`}>
       <div className={`flex--sb-center ${styles.theHeader_content} content`}>
+        {/* TODO: Go to home when click on codelapps */}
         <h1 className="text--big-bold text--content">🍕 Codelapps</h1>
         <div className={`flex--sb-center ${styles.theHeader_actions}`}>
           <SearchButton

@@ -9,10 +9,14 @@ import Button from "../ui/Button";
 import IconButton from "../ui/IconButton";
 import { ControlledDialogProps } from "@/types";
 import ModalTransition from "../ui/ModalTransition";
+import { useContext } from "react";
+import LocaleContext from "@/shared/contexts/LocaleContext";
 
 interface TheMobileNavProps extends ControlledDialogProps {}
 
 export default function TheMobileNav({ onClose, isOpen }: TheMobileNavProps) {
+  const { dictionary } = useContext(LocaleContext);
+
   return (
     <Dialog fullScreen open={isOpen} TransitionComponent={ModalTransition}>
       <div className={`${styles.navMobile} bg--lead`}>
@@ -33,13 +37,15 @@ export default function TheMobileNav({ onClose, isOpen }: TheMobileNavProps) {
         <section className={`p--2 flex--center-column`}>
           <TheNav layout="column" className="text--center" />
           <span className="bg--content mt--4 p--1 round">
-            <span className="text--md text--content mr--1">Appereance</span>
+            <span className="text--md text--content mr--1">
+              {dictionary.navigation.appeareance}
+            </span>
             <ThemSwitcher />
           </span>
           <SocialNetworks mode="full" className="mt--4" />
         </section>
         {/* TODO: implement PWA */}
-        <Button className="m--2">Download PWA</Button>
+        <Button className="m--2">{dictionary.navigation.donwload}</Button>
       </div>
     </Dialog>
   );

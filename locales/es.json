@@ -1,10 +1,55 @@
 {
+  "siteDescription": "Hola, este es mi sitio personal donde comparto mi experiencia com desarrollador, entusiasta de las nuevas tecnologías, amante de los videojuegos y cosas geek en general.",
+  "home": {
+    "gretting": "Hola, Soy Andrew GM",
+    "welcome": "Front-end, Back-end, mobile apps, jeugos, y más. Bienvenido a mi rincón digital donde la creatividad y la tecnología se fusionan"
+  },
   "navigation": {
     "routes": {
       "home": "Inicio",
       "blog": "Blog",
       "portfolio": "Portafolio"
+    },
+    "appeareance": "Apariencia",
+    "donwload": "Descargar"
+  },
+  "tags": {
+    "title": "Tags",
+    "description": "Más temas interesantes"
+  },
+  "searchBox": {
+    "search": "Buscar",
+    "control": "Ctrl + K",
+    "description": "En busca de algo asombroso 🪐",
+    "noResults": "Sin resultados 🛸",
+    "actions": {
+      "toSelect": "para seleccionar",
+      "toNavigate": "para navegar",
+      "toClose": "para cerrar"
     }
   },
-  "hello": "Hola mundo"
+  "error": "Algo salió mal, por favor intenta de nuevo o recarga la página 👾✖️",
+  "blog": {
+    "title": "Blog",
+    "description": "¡Bienvenido a mi blog! Aquí encontrarás contenido sobre programación, diseño, videojuegos y creatividad."
+  },
+  "404": {
+    "title": "404",
+    "description": "Este es un sition desconocido 👽",
+    "imageDescription": "Estas perdido, quizá este sitio fue tomado por un OVNI",
+    "link": "Llévame a casa"
+  },
+  "footer": {
+    "sections": "Secciones",
+    "followMe": "Sígueme",
+    "madeWith": "Hecho con 💖 por"
+  },
+  "post": {
+    "filters": {
+      "newest": "Más nuevos",
+      "oldest": "Más antiguos"
+    },
+    "sectionTitle": "Destacadas",
+    "recommendations": "Publicaciones recomendadas"
+  }
 }

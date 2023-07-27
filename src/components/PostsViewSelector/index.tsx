@@ -2,8 +2,9 @@
 import RadioIcon, { RadioIconGroup } from "../ui/RadioIcon";
 import { GridViewRounded, TableRows } from "@mui/icons-material";
 import styles from "./styles.module.scss";
-import { ChangeEvent, useCallback, useMemo, useState } from "react";
+import { ChangeEvent, useCallback, useMemo, useState, useContext } from "react";
 import { Combobox, ComboboxItem } from "../ui/Combobox";
+import LocaleContext from "@/shared/contexts/LocaleContext";
 
 export interface PostsViewSelectorProps {
   onPostsViewMode?: (mode: "grid" | "rows") => void;
@@ -12,11 +13,6 @@ export interface PostsViewSelectorProps {
   className?: string;
 }
 
-const orderOptions: ComboboxItem[] = [
-  { name: "Newest", value: "newest" },
-  { name: "Oldest", value: "oldest" },
-];
-
 export default function PostsViewSelector({
   onPostsViewMode,
   className,
@@ -24,6 +20,15 @@ export default function PostsViewSelector({
   shouldShowFilters,
 }: PostsViewSelectorProps) {
   const [order, setOrder] = useState<"newest" | "oldest">("newest");
+  const { dictionary } = useContext(LocaleContext);
+
+  const orderOptions: ComboboxItem[] = useMemo(
+    () => [
+      { name: dictionary.post.filters.newest, value: "newest" },
+      { name: dictionary.post.filters.oldest, value: "oldest" },
+    ],
+    []
+  );
 
   const selectViewModeHandler = useCallback(
     (value: string | number) => {

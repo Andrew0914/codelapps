@@ -1,4 +1,7 @@
+"use client";
 import { PostBase } from "@/models/Post";
+import LocaleContext from "@/shared/contexts/LocaleContext";
+import { useContext } from "react";
 import RecommendationBadge from "../ui/RecommendationBadge";
 
 interface PostFooterProps {
@@ -6,6 +9,7 @@ interface PostFooterProps {
 }
 // TODO: Create story
 export default function PostFooter({ recommendations }: PostFooterProps) {
+  const { dictionary } = useContext(LocaleContext);
   const recommendationsItems =
     recommendations &&
     recommendations.map((recommendation, index) => {
@@ -20,7 +24,7 @@ export default function PostFooter({ recommendations }: PostFooterProps) {
 
   return (
     <footer className="my--3">
-      <h5 className="header--5">Recommended posts:</h5>
+      <h5 className="header--5">{dictionary.post.recommendations}</h5>
       <hr className="my--3" />
       <div className="mb--3 grid--auto">{recommendationsItems}</div>
     </footer>

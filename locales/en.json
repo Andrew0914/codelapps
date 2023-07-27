@@ -1,10 +1,55 @@
 {
+  "siteDescription": "Hello, this is my personal website where I share my experience as a developer, enthusiast of new technologies, lover of video games, and geeky things in general.",
+  "home": {
+    "gretting": "Hi, I'm Andrew GM",
+    "welcome": "Front-end, Back-end, mobile apps, games, and more. Welcome to my digital space where creativity and technology merge!"
+  },
   "navigation": {
     "routes": {
       "home": "Home",
       "blog": "Blog",
       "portfolio": "Portfolio"
+    },
+    "appeareance": "Appeareance",
+    "donwload": "Download"
+  },
+  "tags": {
+    "title": "Tags",
+    "description": "More interesting topics"
+  },
+  "searchBox": {
+    "search": "Search",
+    "control": "Ctrl + K",
+    "description": "Looking for something amazing 🪐",
+    "noResults": "No results found 🛸",
+    "actions": {
+      "toSelect": "to select",
+      "toNavigate": "to navigate",
+      "toClose": "to close"
     }
   },
-  "hello": "Hello world"
+  "error": "Something is wrong, please try again or reload 👾✖️",
+  "blog": {
+    "title": "The Blog",
+    "description": "Welcome to my blog! Here you'll find content about programming, design, video games, and creativity."
+  },
+  "404": {
+    "title": "404",
+    "description": "This is an unknow site 👽",
+    "imageDescription": "You are lost, maybe an UFO take this page",
+    "link": "Take me home"
+  },
+  "footer": {
+    "sections": "Sections",
+    "followMe": "Follow me",
+    "madeWith": "Made with 💖 by"
+  },
+  "post": {
+    "filters": {
+      "newest": "Newest",
+      "oldest": "Oldest"
+    },
+    "sectionTitle": "Featured post",
+    "recommendations": "Recommended posts"
+  }
 }
