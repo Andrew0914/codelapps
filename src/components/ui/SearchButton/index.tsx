@@ -15,6 +15,8 @@ export default function SearchButton(props: SearchButtonProps) {
     <button
       className={`${props.className} ${styles.searchButton} flex--sb-center round`}
       onClick={props.onSearchButtonClick}
+      aria-label="Da click o enter o presionar Ctrl + K para abrir el dialogo de búsqueda"
+      title="Abrir dialogo de búsqueda"
     >
       <SearchIcon className="text--content" />
       <span className={`text--md text--content ${styles.searchButton_desktop}`}>

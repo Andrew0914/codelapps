@@ -45,7 +45,13 @@ export default function TheMobileNav({ onClose, isOpen }: TheMobileNavProps) {
           <SocialNetworks mode="full" className="mt--4" />
         </section>
         {/* TODO: implement PWA */}
-        <Button className="m--2">{dictionary.navigation.donwload}</Button>
+        <Button
+          className="m--2"
+          aria-label={dictionary.navigation.donwload}
+          title={dictionary.navigation.donwload}
+        >
+          {dictionary.navigation.donwload}
+        </Button>
       </div>
     </Dialog>
   );

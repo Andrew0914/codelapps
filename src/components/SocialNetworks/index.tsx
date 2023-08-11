@@ -57,7 +57,11 @@ export default function SocialNetworks({
           .slice(0, mode === "short" ? 3 : shortcuts.length)
           .map((shortcut) => (
             <li key={shortcut.name}>
-              <a href={shortcut.url} target="_blank">
+              <a
+                href={shortcut.url}
+                target="_blank"
+                aria-label={`Link a ${shortcut.name} del autor`}
+              >
                 {shortcut.icon}
               </a>
             </li>

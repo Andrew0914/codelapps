@@ -10,6 +10,7 @@ import TheMobileNav from "@/components/TheMobileNav";
 import ThemSwitcher from "../ThemeSwitcher";
 import SearchBox from "../SearchBox";
 import useControlledDialog from "@/shared/hooks/useControlledDialog";
+import Link from "next/link";
 
 export default function TheHeader() {
   const {
@@ -27,8 +28,19 @@ export default function TheHeader() {
   return (
     <header className={`shadow--y ${styles.theHeader}`}>
       <div className={`flex--sb-center ${styles.theHeader_content} content`}>
-        {/* TODO: Go to home when click on codelapps */}
-        <h1 className="text--big-bold text--content">🍕 Codelapps</h1>
+        <h1
+          className="text--big-bold text--content"
+          aria-labelledby="codelapps"
+        >
+          <Link
+            href="/"
+            className="text--content"
+            aria-label="Encabezado y link al inicio"
+            id="codelapps"
+          >
+            🍕 Codelapps
+          </Link>
+        </h1>
         <div className={`flex--sb-center ${styles.theHeader_actions}`}>
           <SearchButton
             className={styles.theHeader_searchbar}
@@ -47,7 +59,7 @@ export default function TheHeader() {
             <ThemSwitcher />
           </span>
           <SocialNetworks mode="short" className={styles.theHeader_shortcuts} />
-          <IconButton>
+          <IconButton aria-label="Botón para descargar el sitio web">
             <DownloadRounded />
           </IconButton>
         </div>

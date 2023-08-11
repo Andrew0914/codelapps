@@ -16,6 +16,9 @@
 
 .theHeader_content {
   height: 100%;
+  & a {
+    text-decoration: none;
+  }
 }
 
 .theHeader_actions {

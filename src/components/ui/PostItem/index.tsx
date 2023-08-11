@@ -62,9 +62,9 @@ export default function PostItem(props: PostItemProps) {
       <div className={`${styles.postItem_content} w--full`}>
         {mode === "rows" && time}
         {mode === "grid" && thumbnail}
-        <h2 className={`text--content header--5 ${styles.postItem__title}`}>
+        <h3 className={`text--content header--5 ${styles.postItem__title}`}>
           {props.title}
-        </h2>
+        </h3>
         <p className={`${styles.postItem_excerpt} text--content`}>
           {props.excerpt}
         </p>

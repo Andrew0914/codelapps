@@ -8,6 +8,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 export default function ThemSwitcher() {
   const [isLightMode, seIsLightMode] = useState(false);
   // FIXME: use breakpoint as variables from scss
+  // FIXME: When reloading or entering the first time in system is in light mode theme switcher defaults is dark mode.
   const onDesktop = useMediaQuery("(min-width:992px)", { noSsr: true });
 
   useEffect(() => {
@@ -25,7 +26,7 @@ export default function ThemSwitcher() {
 
   return (
     <SwitchButton
-      size="small"
+      calibre="small"
       iconOn={<LightModeIcon fontSize="small" />}
       iconOff={<ModeNightIcon fontSize="small" />}
       onSwitch={(isActive: boolean) => {
@@ -33,6 +34,7 @@ export default function ThemSwitcher() {
         return undefined;
       }}
       isActive={isLightMode}
+      aria-label="Selector de tema"
     />
   );
 }

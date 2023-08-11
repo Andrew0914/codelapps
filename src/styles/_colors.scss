@@ -18,7 +18,7 @@ $--bg-blur: --bg-blur;
 
 // Default theme
 $theme-map-light: (
-  $--muted: #6c757d,
+  $--muted: #565a5e,
   $--text: #2a2a2a,
   $--primary: #1a8cd8,
   $--secondary: #127797,
@@ -29,7 +29,7 @@ $theme-map-light: (
   $--bg-lead: #f2f4f7,
   $--text-gradient: linear-gradient(180deg, #7db800 50.31%, #ed0900 100%),
   $--vertical-shadow: rgba(78, 78, 78, 0.25),
-  $--shadow: rgba(78, 78, 78, 0.4),
+  $--shadow: rgba(78, 78, 78, 0.65),
   $--white: #fefeff,
   $--black: #102011,
   $--bg-blur: rgba(0, 0, 0, 0.1),
