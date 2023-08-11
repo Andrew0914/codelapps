@@ -5,6 +5,11 @@
 .switchButton {
   position: relative;
   display: inline-block;
+
+  &:focus-within {
+    outline: 2px solid var($--text);
+    border-radius: calc($unit * 0.5);
+  }
 }
 
 /** SIZES **/

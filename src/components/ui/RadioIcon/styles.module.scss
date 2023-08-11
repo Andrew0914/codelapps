@@ -3,6 +3,9 @@
 .radioIcon {
   cursor: pointer;
   color: var($--text);
+  &:focus-within {
+    outline: 2px solid var($--text);
+  }
 }
 
 .active {

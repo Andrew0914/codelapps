@@ -1,6 +1,6 @@
 "use client";
 
-import { PropsWithChildren, useEffect, useState } from "react";
+import { KeyboardEvent, PropsWithChildren, useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 import classnames from "classnames";
 
@@ -28,10 +28,22 @@ export default function RadioIcon(props: RadioIconProps) {
     setChecked(!isChecked);
   };
 
+  const onKeyDownHandler = (e: KeyboardEvent<HTMLLabelElement>) => {
+    if (e.key.toLowerCase() === "enter") {
+      const target = e.currentTarget as HTMLLabelElement;
+      target.click();
+    }
+  };
+
   const classes = classnames(styles.radioIcon, { [styles.active]: isChecked });
 
   return (
-    <label className={classes} onClick={checkIconHandler}>
+    <label
+      className={classes}
+      onClick={checkIconHandler}
+      tabIndex={0}
+      onKeyDown={onKeyDownHandler}
+    >
       {props.children}
     </label>
   );

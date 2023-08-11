@@ -1,7 +1,7 @@
+import { ButtonHTMLAttributes } from "react";
 import styles from "./styles.module.scss";
-import { PropsWithChildren, ReactElement, ReactNode } from "react";
 
-interface IconButtonProps extends PropsWithChildren {
+interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   onClick?: () => void;
 }
@@ -11,6 +11,7 @@ export default function IconButton(props: IconButtonProps) {
     <button
       className={`flex--center round--sm ${styles.iconButton} ${props.className}`}
       onClick={props.onClick}
+      aria-label={props["aria-label"]}
     >
       {props.children}
     </button>
