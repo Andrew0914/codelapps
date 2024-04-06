@@ -20,7 +20,7 @@ export default function TheNav({ className, layout = "row" }: TheNavProps) {
   const routes: RouteItem[] = [
     { name: dictionary.navigation.routes.home, route: "/" },
     { name: dictionary.navigation.routes.blog, route: "/blog" },
-    { name: dictionary.navigation.routes.portfolio, route: "/porfolio" },
+    { name: dictionary.navigation.routes.portfolio, route: "/portfolio" },
   ];
 
   return (
