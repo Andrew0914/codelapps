@@ -106,13 +106,13 @@ $text-header-sizes: (
 /****** TEXT ITEMS 📝*****/
 .text--link {
   @extend %content-font;
-  color: var(--highlight);
+  color: var(--hightlight);
   text-decoration: underline;
   cursor: pointer;
   transition: color 0.3s ease-in-out;
 
   &:visited {
-    color: var(--muted);
+    color: var(--accent);
   }
 
   &:hover,
@@ -164,4 +164,9 @@ $text-colors: muted, text, primary, secondary, highlight, accent, danger;
 
 .text--center {
   text-align: center;
+}
+
+
+.text--no-decoration {
+  text-decoration: unset;
 }

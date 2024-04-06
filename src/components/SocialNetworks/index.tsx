@@ -54,7 +54,7 @@ export default function SocialNetworks({
     <nav className={className}>
       <ul className={`inline--list ${styles.shortcuts_list}`}>
         {shortcuts
-          .slice(0, mode === "short" ? 3 : shortcuts.length)
+          .slice(0, mode === "short" ? 2 : shortcuts.length)
           .map((shortcut) => (
             <li key={shortcut.name}>
               <a href={shortcut.url} target="_blank">

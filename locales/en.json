@@ -1,8 +1,11 @@
 {
   "siteDescription": "Hello, this is my personal website where I share my experience as a developer, enthusiast of new technologies, lover of video games, and geeky things in general.",
   "home": {
-    "gretting": "Hi, I'm Andrew GM",
-    "welcome": "Front-end, Back-end, mobile apps, games, and more. Welcome to my digital space where creativity and technology merge!"
+    "myName": "Andrew González",
+    "gretting": "Hi 👋!, I'am ",
+    "aboutMe": "IT engineer, software developer and learning enthusiast.",
+    "currentTechnologies": "Elixir 💧| JavaScript 🟨 | React ⚛️ | Vue🔰 | Flutter 🟦 | Photoshop 🖼️ | AI 🧠 | Videogames 🕹️",
+    "aboutMeTitle": "About me"
   },
   "navigation": {
     "routes": {
@@ -28,14 +31,14 @@
       "toClose": "to close"
     }
   },
-  "error": "Something is wrong, please try again or reload 👾✖️",
+  "error": "Something is wrong, please try again or reload 👾",
   "blog": {
     "title": "The Blog",
     "description": "Welcome to my blog! Here you'll find content about programming, design, video games, and creativity."
   },
   "404": {
     "title": "404",
-    "description": "This is an unknow site 👽",
+    "description": "This is an unknow site",
     "imageDescription": "You are lost, maybe an UFO take this page",
     "link": "Take me home"
   },

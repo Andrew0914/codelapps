@@ -15,6 +15,8 @@ $--shadow: --shadow;
 $--white: --white;
 $--black: --black;
 $--bg-blur: --bg-blur;
+$--bg-blur-dark: --bg-blur-dark;
+
 
 // Default theme
 $theme-map-light: (
@@ -26,13 +28,14 @@ $theme-map-light: (
   $--accent: #d8701a,
   $--danger: #de3019,
   $--bg-content: #ffffff,
-  $--bg-lead: #f2f4f7,
+  $--bg-lead: #f2f1f0,
   $--text-gradient: linear-gradient(180deg, #7db800 50.31%, #ed0900 100%),
   $--vertical-shadow: rgba(78, 78, 78, 0.25),
   $--shadow: rgba(78, 78, 78, 0.4),
   $--white: #fefeff,
   $--black: #102011,
   $--bg-blur: rgba(0, 0, 0, 0.1),
+  $--bg-blur-dark: rgba(0, 0, 0, 0.85)
 );
 
 // Override the default light theme
@@ -52,6 +55,7 @@ $theme-map-dark: (
   $--white: #fefeff,
   $--black: #102011,
   $--bg-blur: rgba(255, 255, 255, 0.1),
+  $--bg-blur-dark: rgba(0, 0, 0, 0.85)
 );
 
 $ui-variants: (

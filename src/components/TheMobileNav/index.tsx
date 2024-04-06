@@ -12,7 +12,7 @@ import ModalTransition from "../ui/ModalTransition";
 import { useContext } from "react";
 import LocaleContext from "@/shared/contexts/LocaleContext";
 
-interface TheMobileNavProps extends ControlledDialogProps {}
+interface TheMobileNavProps extends ControlledDialogProps { }
 
 export default function TheMobileNav({ onClose, isOpen }: TheMobileNavProps) {
   const { dictionary } = useContext(LocaleContext);
@@ -23,7 +23,7 @@ export default function TheMobileNav({ onClose, isOpen }: TheMobileNavProps) {
         <header
           className={`bg--content flex--sb-center p--2 ${styles.navMobile_header}`}
         >
-          <h1 className="text--content text--big-bold">Codelapps 🍕</h1>
+          <h1 className="text--content text--big-bold">☕ Andrew Dev</h1>
           <div>
             <IconButton>
               {/* TODO: implemen showing  serch window */}
@@ -44,8 +44,7 @@ export default function TheMobileNav({ onClose, isOpen }: TheMobileNavProps) {
           </span>
           <SocialNetworks mode="full" className="mt--4" />
         </section>
-        {/* TODO: implement PWA */}
-        <Button className="m--2">{dictionary.navigation.donwload}</Button>
+
       </div>
     </Dialog>
   );
