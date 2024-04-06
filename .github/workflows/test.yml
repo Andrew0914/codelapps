@@ -1,4 +1,4 @@
-name: Codelapps Nextjs app
+name: andrew dev Nextjs app
 
 on:
   pull_request:

@@ -6,6 +6,9 @@ import SectionTitle from "@/components/ui/SectionTitle";
 import { getAllPostsMetaData } from "../api/posts/controller";
 import { getAllTags } from "../api/tags/controller";
 import { getDictionary } from "../../../get-dictionary";
+import Image from "next/image";
+import IAvatar from "@/components/IAvatart";
+
 
 export default async function IndexPage({
   params: { lang },
@@ -18,22 +21,41 @@ export default async function IndexPage({
     lang
   );
   return (
-    <div className="flex--center-column">
-      <header className="w--full bg--lead">
-        <div className="content flex--center-column pt--5 pb--3">
-          <div className="flex--sb-center">
-            <h1 className="header--0 text--center">
-              {homeDictionary.gretting}
-            </h1>
-            <span className="waving header--1" role="img" aria-label="hand">
-              👋
-            </span>
-          </div>
-          <p className="text--content text--md container--xs text--center mt--4">
-            {homeDictionary.welcome}
+    <>
+      <header className="w--full bg--lead bg--stars">
+
+        <div className="flex--center-column py--8 content">
+          <span className="text--content text--big text--md mb--4">
+            {homeDictionary.gretting}
+          </span>
+
+          <h1 className="header--0 text--center">
+            {homeDictionary.myName}
+          </h1>
+
+          <p className="text--content text--big container--xs mt--4 text--center">
+            {homeDictionary.aboutMe}
           </p>
-          <SocialNetworks mode="short" className="mt--4" />
+
+          <p className="text--content text--xsmall container--xs mt--3 text--center">
+            {homeDictionary.currentTechnologies}
+          </p>
+
+          <IAvatar
+            src="/images/common/i_am_andrew.png"
+            width={180}
+            height={180}
+            alt=""
+            title=""
+            className="circle mt--4"
+            href="/about"
+            textAction={homeDictionary.aboutMeTitle}
+          />
+
+          <SocialNetworks mode="full" className="mt--4" />
+
         </div>
+
       </header>
 
       <section className="content py--4">
@@ -44,6 +66,6 @@ export default async function IndexPage({
           <TagsBox tags={tags} />
         </div>
       </section>
-    </div>
+    </>
   );
 }

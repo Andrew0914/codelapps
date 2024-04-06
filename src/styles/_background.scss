@@ -1,19 +1,24 @@
 /**** BORDER COLORS ****/
 $bg-colors: primary, secondary, highlight, accent, danger, bg-content, bg-lead;
+
 /**
 * Generate  border color classes 
 */
 @mixin make-bg-color-classes() {
   @each $color in $bg-colors {
-    @if $color == bg-content {
+    @if $color ==bg-content {
       .bg--content {
         background-color: var(--#{$color});
       }
-    } @else if $color == bg-lead {
+    }
+
+    @else if $color ==bg-lead {
       .bg--lead {
         background-color: var(--#{$color});
       }
-    } @else {
+    }
+
+    @else {
       .bg--#{$color} {
         background-color: var(--#{$color});
       }
@@ -22,3 +27,5 @@ $bg-colors: primary, secondary, highlight, accent, danger, bg-content, bg-lead;
 }
 
 @include make-bg-color-classes();
+
+

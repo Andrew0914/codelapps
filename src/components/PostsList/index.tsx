@@ -20,7 +20,7 @@ export default function PostsList({
   posts,
   shouldShowOderFilters,
 }: PostsListProps) {
-  const [mode, setMode] = useState<modes>("rows");
+  const [mode, setMode] = useState<modes>("grid");
   const [order, setOrder] = useState<DateOrder>("newest");
   const postsListClasses = classNames("pt--3", styles.postsList, styles[mode]);
   const { dictionary } = useContext(LocaleContext);
