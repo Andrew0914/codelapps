@@ -61,7 +61,7 @@ export default function PostsViewSelector({
 
       <RadioIconGroup
         className={`${styles.postsViewSelector}  ${className}`}
-        initialValue="rows"
+        initialValue="grid"
         onSelect={selectViewModeHandler}
       >
         <RadioIcon value="grid">

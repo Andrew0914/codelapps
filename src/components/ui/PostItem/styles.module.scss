@@ -10,10 +10,28 @@
   -webkit-box-orient: vertical;
 }
 
+@keyframes showOut {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(0.975);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .postItem {
   background-color: var($--bg-lead);
   gap: $unit;
   text-decoration: none;
+  animation: showOut 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .postItem_content {
@@ -35,6 +53,7 @@
 
 .postItem_excerpt {
   @extend %text-fit;
+
   @include on-mobile() {
     display: none;
   }
